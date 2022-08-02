@@ -1,0 +1,345 @@
+.welcome{
+    margin-top: 15px;
+}
+
+.wrapper .pic img{
+    width: 100%;
+    height: 600px;
+}
+
+.overlay{
+    width: 100%;
+    height: 600px;
+    position: relative;
+    background-color: #333333;
+    margin-top: -605px;
+    opacity: 45%;
+}
+
+.text{
+    padding: 0 0 0 100px;
+    text-align: left;
+    position: relative;
+    margin-top: -400px;
+    font-family: 'Noto Serif JP', serif;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.text h1{
+    font-size: 70px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.text p{
+    color: white;
+    font-size: 50px;
+    margin-top: 10px;
+}
+
+.text .btn{
+    margin-top: 20px;
+}
+
+.text .btn button{
+      border: 1px solid white;
+      background-color: transparent;
+      text-align: center;
+      padding: 10px;
+      color: white;
+      font-size: 15px;
+      font-family: 'Noto Serif JP', serif;
+      letter-spacing: 0.09em;
+}
+
+.text .btn button:hover{
+    border: 1px solid white;
+    background-color: white;
+    color: purple;
+    transition: 0.35s ease;
+}
+
+
+#sec2{
+    margin-top: 250px;
+}
+
+.reason{
+    text-align: center;
+    margin-top: 195px;
+    height: 300px;
+    padding: 6% 15% 1% 15%;
+}
+
+.reason h1{
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+    color:rgb(51, 1, 51);
+    margin-top: 5px;
+}
+
+.reason p{
+    font-family: 'Noto Serif JP', serif;
+    margin-top: 15px;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.reason .arrow{
+    margin:auto;
+    width: 40px;
+    height: 40px;
+}
+
+.reason .arrow .scroll{
+    margin-top: 100px;
+    height: 50px;
+    width: 30px;
+    /* border: 1px solid purple; */
+    border-radius: 50px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.reason .arrow .scroll::before,
+.reason .arrow .scroll::after{
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    border: 2px solid purple;
+    height: 15px;
+    width: 15px;
+    transform: translate(-50%, -100%) rotate(45deg);
+    border-top: transparent;
+    border-left: transparent;
+    animation: scroll 1.3s ease-in infinite;
+}
+
+.reason .arrow .scroll::after{
+    top: 30%;
+    animation-delay: .4s;
+}
+
+@keyframes scroll{
+    0%{
+        opacity: 0;
+    }
+    30%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        top: 90%;
+    }
+}
+
+.reason .txt{
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px;
+    color:rgb(78, 0, 78) ;
+    margin-top: -2px;
+}
+
+.services{
+    background-color: #f9f9f9;
+    height: 570px;
+    margin-top: 70px;
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.services h1{
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+    font-size: 300;
+    color:rgb(51, 1, 51);
+}
+
+.container{
+    display: flex;
+    height: 450px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: -30px;
+}
+  
+.details{
+    text-align: center;
+    align-content: space-around;
+    width: 250px;
+}
+
+.details .icon{
+    text-align: center;
+    width: 115px;
+    height: 90px;
+    border-radius: 50%;
+    margin-left: 80px;
+}
+
+.details .overlay{
+    width: 115px;
+    height: 115px;
+    background-color: purple;
+    position: absolute;
+    border-radius: 50%;
+    margin-top: -115px;
+    margin-left: -10px;
+    opacity: 10%;
+}
+
+
+.details .header{
+    text-transform: uppercase;
+    margin-top: 60px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(78, 0, 78);
+}
+
+.details p{
+    margin-top: 12px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5rem;
+    font-size: 13px;
+}
+
+.services .service_btn{
+    text-align: center;
+}
+
+.services .service_btn button{
+    padding: 15px;
+    border: 1px solid purple;
+    background-color: purple;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    opacity: 40%;
+}
+
+.work{
+    width: 100%;
+    display: flex;
+    height: 400px;
+}
+
+.work .instruct{
+    text-align: center;  
+    width: 20%;
+    height: 180px;
+    padding-top: 10px;
+    font-family: 'Roboto', sans-serif;  
+    color: #330133;
+}
+
+.work .instruct h1{
+    margin-top: 40px;
+}
+
+.work .instructions{
+    padding-top: 30px;
+    padding-left: 50px;
+    width: 80%;
+    height: 180px;
+    border: 1px solid purple;
+    border-top: transparent;
+    border-bottom: transparent;
+    border-right: transparent;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    column-gap: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.work .instructions .instruct1, 
+.work .instructions .instruct2,
+.work .instructions .instruct3{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.work .instructions .instruct1 h2, 
+.work .instructions .instruct2 h2,
+.work .instructions .instruct3 h2{
+    color: #330133;
+}
+
+.assess{
+    height: 380px;
+    background-image: url("/assets/photos/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.assess .txt h1, .assess .txt p{
+    /* position: relative;
+    margin-top: -350px;
+    color: white;
+    text-align: center; */
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+    color: white;
+    position: relative;
+    opacity: 1;
+}
+
+.assess .frm form{
+    margin: auto;
+    width: 350px;
+    margin-top: 40px; 
+    position: relative;
+    opacity: 1;
+}
+
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+form .name, .email, .address{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+
+form .name input, .email input{
+    height: 30px;
+    outline: transparent;
+    font-size: 15px;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 5px;
+}
+
+form .address textarea{
+    border: 1px solid white;
+    background-color: white;
+    outline: none;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.assess .overlay{
+    background-color: #333333;
+    height: inherit;
+    margin-top: -32px;
+    opacity: 45%;
+}

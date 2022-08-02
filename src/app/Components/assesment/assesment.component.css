@@ -1,0 +1,102 @@
+.assess{
+    height: 450px;
+    background-image: url("/assets/photos/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 50px;
+}
+
+.assess .overlay{
+    background-color: #333333;
+    height: 500px;
+    margin-top: -32px;
+    opacity: 45%;
+}
+
+.assess .frm{
+    position: relative;
+    opacity: 1;
+    margin-top: -420px;
+    padding-left: 10%;
+}
+
+.assess .frm .txt{
+    color:  white;
+}
+
+.assess .frm .txt h1{
+    font-size: 50px;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: bolder;
+}
+
+.assess .frm .txt p{
+    font-size: 16px;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.assess .frm form{
+    width: 500px;
+    margin-top: 40px;
+}
+
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form .name, .email, .address{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+
+form .name input, .email input{
+    height: 30px;
+    outline: transparent;
+    font-size: 15px;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 5px;
+}
+
+form .address textarea{
+    border: 1px solid white;
+    background-color: white;
+    outline: none;
+    font-size: 15px;
+    border-radius: 5px;
+    resize: none;
+} 
+
+form .submit button{
+    border: 1px solid white;
+    background-color: transparent;
+    text-align: center;
+    padding: 5px;
+    width: 120px;
+    color: white;
+    font-size: 15px;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.09em;
+}
+
+form .submit button:hover{
+    border: 1px solid white;
+    background-color: white;
+    color: purple;
+    transition: 0.35s ease;
+}
+
+.error{
+    position: relative;
+    color: red;
+}
+
+
+
+
+
+

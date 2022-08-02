@@ -1,0 +1,54 @@
+nav{
+    margin-top: 10px;
+    padding: 10px 3% 10px 4%;
+    background-color: white;
+    height: 50px;
+}
+
+.logo{
+    float: left;
+    padding-top: 15px;
+}
+
+.logo a{
+    font-family: 'Bad Script', cursive;
+    font-weight: 500;
+    font-size: 30px;
+    color:rgb(51, 1, 51);
+    text-decoration: none;
+}
+
+.links{
+    float:inline-end;
+    margin-top: 15px;
+}
+
+.nav .links{
+    display: flex;
+    gap: 40px;
+    float: right;
+}
+
+.nav .links a{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color: #333333;
+}
+
+.nav .links a:hover{
+    color: purple;
+}
+
+.nav .links .active{
+    margin: -8px;
+    background-color: rgb(235, 4, 235);
+    color: white;
+    padding: 8px;
+    width: 110px;
+    text-align: center;
+}
+
+.nav .links .active:hover{
+    color: white;
+}
