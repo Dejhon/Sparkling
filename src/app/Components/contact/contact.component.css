@@ -1,0 +1,148 @@
+
+
+.picture{
+    background-image: url('/assets/photos/background.jpeg');
+    height: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay{
+  margin-top: -350px;
+  height: 350px;
+  width: 100%;
+  background-color: #333333;
+  opacity: 45%;
+}
+
+.container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 40%;
+  grid-gap:100px ;
+  margin-top: 30px;
+  padding-bottom: 30px;
+}
+  
+  .info{
+    padding-left: 75px;
+  }
+  
+  .info h1{
+    font-size: 30px;
+  }
+  
+  .statement p{
+    font-size: 16px;
+    line-height: 1.5rem;
+    margin-top: 25px;
+    color: rgb(44, 44, 44);
+  }
+  
+  .address p{
+    font-size: 15px;
+    line-height: 1.5rem;
+    color: rgb(44, 44, 44);
+  }
+  
+  .telephoneNumber p{
+    font-size: 15px;
+    line-height: 1.5rem;
+    color: rgb(44, 44, 44);
+  }
+  
+  .contactEmails label{
+    font-size: 15px;
+    line-height: 1.5rem;
+    color: rgb(44, 44, 44);;
+  }
+  
+  .contactEmails label a{
+    text-decoration: none;
+    color: purple;
+  }
+  
+  
+  .contactForm input{
+    border: 1px solid gray;
+    width: 260px;
+    height: 30px;
+    border-radius: 2px;
+    padding: 5px;
+    color: black;
+    font-size: 15px;
+  }
+  
+  .contactForm label{
+    font-size: 18px;
+  }
+  
+  .name{
+    display: flex;
+  }
+  
+  .first-name input, .last-name input{
+    margin-top: 20px;
+    outline: none;
+  }
+  
+  .contact{
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .email input, .phone-number input{
+    margin-top: 20px;
+    outline: none;
+  }
+  
+  .last-name label, .phone-number label{
+    margin-left: 50px;
+  }
+  
+  .last-name input, .phone-number input{
+    margin-left: 50px;
+    outline: none;
+  }
+  
+  .subject{
+    margin-top: 20px;
+  }
+  
+  .subject input{
+    margin-top: 20px;
+    outline: none;
+  }
+  
+  .message{
+    margin-top: 20px;
+  }
+  
+  .message textarea{
+    border: 1px solid gray;
+    border-radius: 2px;
+    resize: none;
+    outline: none;
+  }
+  
+  .submitBtn{
+    margin-top: 20px;
+  }
+  
+  .submitBtn input{
+    width: 150px;
+    height: 45px;
+    font-size: 18px;
+    color: white;
+    background-color: violet;
+    border: 1px solid violet;
+  }
+  
+  input[type = submit]:disabled{
+    cursor:not-allowed;
+  }
+  
+  .error{
+    color: red;
+  }

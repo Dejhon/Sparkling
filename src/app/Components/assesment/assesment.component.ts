@@ -25,7 +25,7 @@ export class AssesmentComponent implements OnInit {
 
   assessmentForm = new FormGroup({
     name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/)]),
     address: new FormControl('', Validators.required),
   })
 

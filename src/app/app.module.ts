@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { AssesmentComponent } from './Components/assesment/assesment.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './Components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AssesmentComponent
+    AssesmentComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

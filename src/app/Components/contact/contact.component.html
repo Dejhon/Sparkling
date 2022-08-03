@@ -1,0 +1,98 @@
+
+<app-header></app-header>
+
+<div class="picture"></div>
+<div class="overlay"></div>
+<div class="container">
+<div class="info">
+  <h1>Sparkling</h1>
+  <div class="statement">
+    <p>
+      Would you like to make a cancellation or ask a question regarding our services?
+      Sparkling Specialists are here to assist you. Send us your issues below
+      and be sure to include your email address and phone number so we can reply to
+      your request. Our specialists will contact you within 2 business days.
+      Thank you for your interest in Sparkling.
+    </p>
+  </div>
+  <div class="address">
+    <h2>Address</h2>
+    <p>23 Redhills Ave <br> Montego Bay Jamaica <br> West Indies</p>
+  </div>
+  <div class="telephoneNumber">
+    <h2>Telephone</h2>
+    <p>Local Office: 1-876-123-4567<br>Mobile/WhatsApp/Text: 1-876-321-7654</p>
+  </div>
+  <div class="contactEmails">
+    <h2>Contact Emails</h2>
+    <label>Information: <a href=""><u>support@sparkling.com</u></a></label><br>
+    <label>Bookings:<a href=""><u>booking@sparkling.com</u></a></label>
+  </div>
+</div>
+
+<div class="contactForm">
+  <form [formGroup]="contactForm" (submit)="onSubmit()">
+    <div class="formContainer">
+
+      <div class="name">
+        <div class="first-name">
+          <label for="first name">First Name <span *ngIf="firstName?.invalid" style="color: red;">*</span></label><br>
+          <input type="text" placeholder="Firstname" formControlName="firstName" pattern="[A-Za-z]*">
+          <div *ngIf="firstName?.invalid && firstName?.touched">
+            <span class="error">Firstname Required</span>
+          </div>
+        </div>
+        <div class="last-name">
+          <label for="last name">Last Name <span *ngIf="lastName?.invalid" style="color: red;">*</span></label><br>
+          <input type="text" placeholder="Lastname" formControlName="lastName" pattern="[A-Za-z]*">
+          <div *ngIf="lastName?.invalid && lastName?.touched" style="margin-left: 50px;">
+            <span class="error">lastname Required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="email">
+          <label for="email">Email <span *ngIf="email?.invalid" style="color: red;">*</span></label><br>
+          <input type="email" placeholder="Email Address" formControlName="email">
+          <div *ngIf="email?.invalid && email?.touched">
+            <span class="error">Valid Email Required</span>
+          </div>
+        </div>
+        <div class="phone-number">
+          <label for="Mobile number">Phone <span *ngIf="phone?.invalid" style="color: red;">*</span></label><br>
+          <input type="tel" placeholder="Phone Number" formControlName="phone" pattern="[[0-9]{3}-[0-9]{3}-[0-9]{4}]*">
+          <div *ngIf="phone?.invalid && phone?.touched" style="margin-left: 50px;">
+            <span class="error">Phone Number Required</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="subject">
+        <label for="subject">Subject<span *ngIf="subject?.invalid" style="color: red;">*</span></label><br>
+        <input type="text" placeholder="Subject" formControlName="subject" pattern="[A-Za-z]*">
+        <div *ngIf="subject?.touched && subject?.invalid">
+          <span class="error">Enter Subject Matter</span>
+        </div>
+      </div>
+
+      <div class="message">
+        <label for="meassage">Message <span *ngIf="message?.invalid" style="color: red;">*</span></label><br>
+        <textarea formControlName="message" cols="78" rows="12"></textarea>
+        <div *ngIf="message?.touched && message?.invalid">
+          <span class="error">Enter a Message</span>
+        </div>
+      </div>
+
+      <div class="submitBtn">
+        <input type="submit" [disabled]="contactForm.invalid" value="SUBMIT">
+      </div>
+
+    </div>
+  </form>
+</div>
+
+</div>
+
+<app-footer></app-footer>
+
