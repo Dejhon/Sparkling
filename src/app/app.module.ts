@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AssesmentComponent } from './Components/assesment/assesment.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './Components/contact/contact.component';
-import { ServicesComponent } from './Components/services/services.component';
+import { ReviewsService } from './Services/reviews.service';
+import { ServicesOfferedComponent } from './Components/services-offered/services-offered.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ServicesComponent } from './Components/services/services.component';
     HomeComponent,
     AssesmentComponent,
     ContactComponent,
-    ServicesComponent,
+    ServicesOfferedComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +33,7 @@ import { ServicesComponent } from './Components/services/services.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ReviewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
