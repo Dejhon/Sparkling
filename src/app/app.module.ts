@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AssesmentComponent } from './Components/assesment/assesment.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './Components/contact/contact.component';
+import { ServicesComponent } from './Components/services/services.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ContactComponent } from './Components/contact/contact.component';
     FooterComponent,
     HomeComponent,
     AssesmentComponent,
-    ContactComponent
+    ContactComponent,
+    ServicesComponent,
   ],
   imports: [
     BrowserModule,
