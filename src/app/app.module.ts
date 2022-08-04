@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './Components/contact/contact.component';
 import { ReviewsService } from './Services/reviews.service';
 import { ServicesOfferedComponent } from './Components/services-offered/services-offered.component';
+import { BookingComponent } from './Components/booking/booking.component';
+import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ServicesOfferedComponent } from './Components/services-offered/services
     AssesmentComponent,
     ContactComponent,
     ServicesOfferedComponent,
+    BookingComponent,
+    CompanyProfileComponent,
   ],
   imports: [
     BrowserModule,
