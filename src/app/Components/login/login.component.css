@@ -1,0 +1,91 @@
+.banner video{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+.banner .overlay{
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    background: black;
+    opacity: 5%;
+    margin-top: -143px;
+}
+
+.banner .login{
+    position: absolute;
+    background-color: white;
+    width: 50%;
+    min-height: 100%;
+    margin-top: -143;
+    opacity: 90%;
+    clip-path: polygon(53% 0, 100% 100%, 0 100%, 0 0);
+}
+
+.banner .login form{
+    opacity: 1;
+    padding: 40px;
+}
+
+.banner .login form h1{
+    font-size: 35px;
+    color:purple;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.login form .container{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.login form .container .userNm input{
+    width: 300px;
+    font-size: 20px;
+    border-bottom: 1px solid gray;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+}
+
+.login form .container .password input{
+    width: 300px;
+    font-size: 20px;
+    border-bottom: 1px solid gray;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+}
+
+.login form .container .password i{
+    font-size: 18px;
+    margin-left: -30px;
+}
+
+.login form .container .btn button{
+    padding: 8px;
+    border: 1px solid purple;
+    background-color: purple;
+    width: 100px;
+    border-radius: 3px;
+    color: white;
+    font-size: 17px;
+}
+
+.rights{
+    position: absolute;
+    color: purple;
+    margin-top: 580px;
+    margin-left: 150px;
+    text-align: center;
+}
+
+.error{
+    color: red;
+}

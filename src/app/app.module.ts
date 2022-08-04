@@ -17,6 +17,7 @@ import { ServicesOfferedComponent } from './Components/services-offered/services
 import { BookingComponent } from './Components/booking/booking.component';
 import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LoginComponent } from './Components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ServicesOfferedComponent,
     BookingComponent,
     CompanyProfileComponent,
-  ],
+    LoginComponent,
+],
   imports: [
     BrowserModule,
     AppRoutingModule,
