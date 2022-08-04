@@ -1,1 +1,41 @@
-<p>booking works!</p>
+
+<form [formGroup]="bookingForm" (submit)="onSubmit()">
+    <div class="content-wrapper">
+      <div class="name">
+        <label for="">Fullname</label>
+        <input type="text" placeholder="Fullname" formControlName="name">
+        <div class="error" *ngIf="name?.invalid && name?.touched">
+          <small>Please enter a name</small>
+        </div>
+       </div>
+       <div class="email">
+        <label>Email</label>
+        <input type="email" placeholder="Email Address" formControlName="email">
+        <div class="error" *ngIf="email?.invalid && email?.touched">
+          <small>Please enter a valid email address</small>
+        </div>
+       </div>
+       <div class="address">
+        <label for="">Address</label>
+        <textarea cols="30" rows="6" placeholder="Address" formControlName="address"></textarea>
+        <div class="error" *ngIf="address?.invalid && address?.touched">
+          <small>Please enter a name</small>
+        </div>
+       </div>
+       <div class="service">
+        <label for="">Service</label>
+        <select formControlName="service">
+          <option value="">Commercial Cleaning</option>
+          <option value="">Detailing</option>
+          <option value="">Residential Cleaning</option>
+          <option value="">Sanitizing</option>
+        </select>
+        <div class="error" *ngIf="!service">
+          <small>Please select a service</small>
+        </div>
+       </div>
+       <div class="submit">
+          <button>SUBMIT</button>
+       </div>
+    </div>
+  </form>

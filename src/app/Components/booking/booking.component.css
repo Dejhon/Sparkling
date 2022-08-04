@@ -1,0 +1,70 @@
+form{
+    margin: auto;
+    width: 400px;
+}
+
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form .name, .email, .address, .service{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+
+form .name input, .email input{
+    height: 30px;
+    outline: transparent;
+    font-size: 15px;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 2px;
+}
+
+form .address textarea{
+    border: 1px solid gray;
+    background-color: white;
+    outline: none;
+    font-size: 15px;
+    resize: none;
+    border-radius: 2px;
+} 
+
+form .service select{
+    border: 1px solid gray;
+    outline: none;
+    height: 30px;
+    font-size: 15px;
+}
+
+form .submit button{
+    border: 1px solid purple;
+    background-color: transparent;
+    text-align: center;
+    padding: 5px;
+    width: 120px;
+    color: purple;
+    font-size: 15px;
+    font-family: 'Noto Serif JP', serif;
+    letter-spacing: 0.09em;
+}
+
+form .submit button:hover{
+    border: 1px solid purple;
+    background-color: purple;
+    color: white;
+    transition: 0.35s ease;
+}
+
+.error{
+    position: relative;
+    color: red;
+}
+
+label{
+    font-size: 16px;
+}
+

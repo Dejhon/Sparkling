@@ -16,6 +16,7 @@ import { ReviewsService } from './Services/reviews.service';
 import { ServicesOfferedComponent } from './Components/services-offered/services-offered.component';
 import { BookingComponent } from './Components/booking/booking.component';
 import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CompanyProfileComponent } from './Components/company-profile/company-pr
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [ReviewsService],
   bootstrap: [AppComponent]
