@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Sparkling';
+
+  scrollTop(){
+    window.scroll(0,0)
+  }
 }

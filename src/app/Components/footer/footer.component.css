@@ -1,6 +1,6 @@
 .container{
     height: 300px;
-    background-color: #f9f9f9;
+    background-color: #e9e5e5;
     padding: 4% 10% 0 10%;
     display: grid;
     grid-template-columns: 50% 30% 20%;
