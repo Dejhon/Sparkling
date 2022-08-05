@@ -1,5 +1,5 @@
 const express = require('express');
-const Login = require('./../models/loginModel');
+const Login = require('../models/loginModel');
 
 
 exports.getUsers =  async  (req, res) =>{
@@ -30,6 +30,19 @@ exports.addUser = async(req, res) =>{
     });
   }
 }
+
+// exports.login =  async (req, res) =>{
+//   try{
+//   const user = Login.find({userName: req.body.userName, password:req.body.password})
+//   res.status(404).json({
+//     message:"User not found"
+//   })
+//   }catch(err){
+//     res.status(201).json({
+//       message:"Logged In Successfully"
+//     })
+//   }
+// }
 
 exports.getUserById = async (req, res) =>{
   try{
