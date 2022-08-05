@@ -20,7 +20,7 @@ exports.addService = async(req, res) =>{
     res.status(201).json({
       status: 'success',
       data: {
-        student: newService
+        service: newService
       }
     });
   }catch(err){

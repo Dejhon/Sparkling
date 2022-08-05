@@ -17,9 +17,19 @@ const services = new mongoose.Schema({
            },
     firstImage:
            {
-               data: Buffer,
-               contentType: String
-           }
+               type: String,
+               required:true
+           },
+    secondImage:
+            {
+                type: String,
+                required:true
+            },
+    thirdImage:
+            {
+                type: String,
+                required: true
+            }
 });
 
 const Services = mongoose.model('services', services)
