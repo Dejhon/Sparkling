@@ -2,8 +2,13 @@ const express = require('express');
 const User = require('../models/loginModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const expressJWT = require('express-jwt')
-const { filter } = require('rxjs');
+// const expressJWT = require('express-jwt')
+
+// exports.isLoggedIn = expressJWT({
+//   sercret: JWT_SECRET,
+//   userProperty:"auth",
+//   algorithms:['HS256'],
+// })
 
 exports.login = async (req, res) => {
   try{
@@ -14,13 +19,12 @@ exports.login = async (req, res) => {
     }
     const comparePassword = await bcrypt.compare(password, user.password);
     if(comparePassword){
-      res.status(201).json({status:"Successful", message:"Logged in successfully"});
       const token = jwt.sign({
-        id: user._id,
-        userName: user.userName
+        _id: user._id,
+        userName: user.userName,
       },
-      JWT_SECRET,{
-        expiresIn:86400
+       JWT_SECRET = "doctorBird",{
+        expiresIn:86400 //will expire in the next 24 hours
       })
       return res.status(200).json({user, token: token})
     }else{

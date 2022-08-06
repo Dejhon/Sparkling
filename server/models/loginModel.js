@@ -8,7 +8,8 @@ const login = new mongoose.Schema({
     password:{
         type: String,
         required: true
-    }
+    },
+    token: String
 });
 
 const Login = mongoose.model('users', login)
