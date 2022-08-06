@@ -1,13 +1,13 @@
 const express = require('express');
-const Login = require('../models/loginModel');
-const bycrpt = require('bcrypt');
+const User = require('../models/loginModel');
+const bcrypt = require('bcrypt');
 
 
 
 exports.getUsers =  async  (req, res) =>{
   try{
-    const auth = await Login.find();
-    res.status(200).json(auth)
+    const users = await User.find();
+    res.status(200).json(users)
   }catch(err){
     res.status(404).json({
       status:"Fail",
@@ -18,12 +18,18 @@ exports.getUsers =  async  (req, res) =>{
 
 exports.addUser = async(req, res) =>{
   try{
-    const salt = await bycrpt.genSalt(10);
-    const hashedPassword = await bycrpt.hash(req.body.password, salt)
-    const newLogin = Login.create({
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt)
+    const newUser = await User.create({
       userName: req.body.userName,
       password: hashedPassword,
-  },{new: true})
+  })
+  res.status(200).json({
+    status: 'success',
+    data: {
+      User: newUser
+    }
+  });
   }catch(err){
        res.status(404).json({
         status:"Fail",
@@ -32,23 +38,10 @@ exports.addUser = async(req, res) =>{
   }
 }
 
-// exports.login =  async (req, res) =>{
-//   try{
-//   const user = Login.find({userName: req.body.userName, password:req.body.password})
-//   res.status(404).json({
-//     message:"User not found"
-//   })
-//   }catch(err){
-//     res.status(201).json({
-//       message:"Logged In Successfully"
-//     })
-//   }
-// }
-
 exports.getUserById = async (req, res) =>{
   try{
-  const login = await Login.find({_id: req.params.id})
-    res.status(200).json(login);
+  const user = await User.find({_id: req.params.id})
+    res.status(200).json(user);
   }catch(err){
     res.status(404).json({
       status:"Fail",
@@ -59,10 +52,12 @@ exports.getUserById = async (req, res) =>{
 
 exports.updateUser = async (req, res) =>{
   try{
-      const update = await Login.findByIdAndUpdate(req.params.id,
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(req.body.password, salt)
+      const update = await User.findByIdAndUpdate(req.params.id,
       {
         userName: req.body.usernName,
-        password: req.body.password,
+        password: hashedPassword,
        },
        {new: true}
        )
@@ -70,7 +65,7 @@ exports.updateUser = async (req, res) =>{
       res.status(200).json({
       status: 'success',
       data:{
-        login: update
+        user: update
       }
     });
   }catch{
@@ -83,14 +78,13 @@ exports.updateUser = async (req, res) =>{
 
 exports.deleteUser = async (req, res) =>{
   try{
-    if(req.params.id * 1 > Login.length){
+    if(req.params.id * 1 > User.length){
       return res.status(404).json({
         status: 'fail',
         message: 'Invalid ID'
       });
     }else{
-      const deleted = await Login.findByIdAndDelete({_id: req.params.id})
-    // Can also be 204 if you are not returning anything in the response
+      const deleted = await User.findByIdAndDelete({_id: req.params.id})
       res.status(200).json({
         status: 'success',
         data:{
