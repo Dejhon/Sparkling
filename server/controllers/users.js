@@ -1,5 +1,7 @@
 const express = require('express');
 const Login = require('../models/loginModel');
+const bycrpt = require('bcrypt');
+
 
 
 exports.getUsers =  async  (req, res) =>{
@@ -16,13 +18,12 @@ exports.getUsers =  async  (req, res) =>{
 
 exports.addUser = async(req, res) =>{
   try{
-    const newLogin = await Login.create(req.body)
-    res.status(201).json({
-      status: 'success',
-      data: {
-        service: newLogin
-      }
-    });
+    const salt = await bycrpt.genSalt(10);
+    const hashedPassword = await bycrpt.hash(req.body.password, salt)
+    const newLogin = Login.create({
+      userName: req.body.userName,
+      password: hashedPassword,
+  },{new: true})
   }catch(err){
        res.status(404).json({
         status:"Fail",

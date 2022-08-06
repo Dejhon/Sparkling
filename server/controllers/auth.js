@@ -1,6 +1,6 @@
 const express = require('express');
-const { filter } = require('rxjs');
 const Login = require('../models/loginModel');
+const bycrpt = require('bcrypt');
 
 
 exports.login =  async (req, res) =>{
