@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AssesmentComponent } from './Components/assesment/assesment.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './Components/contact/contact.component';
-import { ReviewsService } from './Services/reviews.service';
 import { ServicesOfferedComponent } from './Components/services-offered/services-offered.component';
 import { BookingComponent } from './Components/booking/booking.component';
 import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
@@ -41,7 +40,7 @@ import { LoginComponent } from './Components/login/login.component';
     ReactiveFormsModule,
     MatDialogModule
   ],
-  providers: [ReviewsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
