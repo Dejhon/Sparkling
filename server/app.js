@@ -9,8 +9,8 @@ const cors = require('cors');
 // 1) MIDDLEWARES
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(cors());
 
+app.use(cors())
 
 app.use((req, res, next) =>{
   console.log('[ANGULAR-APP3.1] - User Created Middleware!!');
