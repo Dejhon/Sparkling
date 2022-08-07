@@ -12,9 +12,9 @@ export class AuthService {
 
   constructor(private auth:HttpClient) { }
 
-  loginUser(data:any):Observable<Users>{
+  loginUser(data:object):Observable<Users>{
     return this.auth.post<Users>(`${this.REST_API_URL}`, data).pipe(
-      tap( userLoggedIn => console.log(`This user Logged In  ${JSON.stringify(userLoggedIn)}`)),
+      tap( userLoggedIn => console.log(`${JSON.stringify(userLoggedIn)}`)),
       catchError( error => of())
     );
   }

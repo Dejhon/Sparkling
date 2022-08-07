@@ -68,7 +68,7 @@ exports.updateUser = async (req, res) =>{
         user: update
       }
     });
-  }catch{
+  }catch(err){
     res.status(404).json({
       status:"Fail",
       message: err

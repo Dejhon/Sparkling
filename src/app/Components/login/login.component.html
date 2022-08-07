@@ -8,13 +8,13 @@
             <div class="container">
                 <h1>SPARKLING</h1>
                 <div class="userNm">
-                    <input type="text" placeholder="Username" formControlName="username">
-                    <div class="error" *ngIf="username?.invalid && username?.touched">
+                    <input type="text" placeholder="Username" formControlName="username" #userName>
+                    <div class="error" *ngIf="username?.invalid && username?.touched"  >
                         <small>Enter a valid username</small>
                     </div>
                 </div>
                 <div class="password">
-                    <input type="password" placeholder="Password" [type]="visibility? 'text' : 'password'" formControlName="password">
+                    <input type="password" placeholder="Password" #Password [type]="visibility? 'text' : 'password'" formControlName="password">
                     <i *ngIf="!visibility && password?.dirty" class="fa fa-eye" (click)="view()" ></i>
                     <i *ngIf="visibility  && password?.dirty" class="fa fa-eye-slash" (click)="view()"></i>
                     <div class="error" *ngIf="password?.invalid && password?.touched">
@@ -22,7 +22,10 @@
                     </div>
                 </div>
                 <div class="btn">
-                    <button (click)="onSubmit()">LOGIN</button>
+                    <button (click)="onSubmit({userName:userName.value.trim(), password : Password.value.trim()});
+                        userName.value = '';
+                        Password.value = '';
+                        ">LOGIN</button>
                 </div>
             </div>
         </form>

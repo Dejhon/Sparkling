@@ -9,7 +9,7 @@ const { login,
 var whitelist = ['http://localhost:4200','http://localhost:3000/sparkling/authentication']
 var corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    if (whitelist.includes(origin) !== -1) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))

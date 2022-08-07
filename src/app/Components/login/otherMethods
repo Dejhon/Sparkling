@@ -1,0 +1,47 @@
+//   onSubmit() {
+//     this.authenticate.loginUser(this.loginForm.value).subscribe((res:any) =>{
+//      if(res && res['status'] === 'ok' res['loginUser']) {
+//         console.log('User logged in Successfully')
+//         localStorage.setItem('username' , res['data']['existUser']['username'])
+//         this.route.navigate(['/profile'])
+//      }else{
+//       console.log('Not valid user')
+//      }
+//      error: () => {
+//       if(error) {
+//          console.log('Error is ' , error)
+//       }
+//     }
+//    }
+// }
+
+//   onSubmit() {
+//     if(this.loginForm?.invalid){
+//       alert('Please enter valid credentials')
+//     }else{
+//     const formData = this.loginForm.getRawValue();  
+//     const data = {
+//       userName: this.username?.value,
+//       password: this.password?.value,
+//     };
+//     const loginData = new FormData();
+
+//     loginData.append("userName", data.userName);
+//     loginData.append("password", data.password);
+//     this.authenticate.loginUser(data).subscribe({
+//       next: (result: any) => {
+//         result = this.user;
+//         if(!this.user){
+//           this.route.navigate(['/login']);
+//         }else{
+//           localStorage.setItem( 'token', result.data);
+//           alert('Successfully logged in')
+//           this.route.navigate(['/profile']);
+//         }
+//       },
+//       error: () => {
+//         alert('Error occured while logging in')
+//       },
+//     });
+//   }
+// }

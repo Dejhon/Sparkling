@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { AssesmentComponent } from './Components/assesment/assesment.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ContactComponent } from './Components/contact/contact.component';
 import { ServicesOfferedComponent } from './Components/services-offered/services-offered.component';
 import { BookingComponent } from './Components/booking/booking.component';
