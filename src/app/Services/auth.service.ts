@@ -12,6 +12,10 @@ export class AuthService {
 
   constructor(private auth:HttpClient) { }
 
+  isLoggedIn(){
+    return !!localStorage.getItem('token')
+  }
+
   loginUser(data:object):Observable<Users>{
     return this.auth.post<Users>(`${this.REST_API_URL}`, data).pipe(
       tap( userLoggedIn => console.log(`${JSON.stringify(userLoggedIn)}`)),

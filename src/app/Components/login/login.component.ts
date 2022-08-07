@@ -40,7 +40,7 @@ onSubmit(body:object):void{
   this.authenticate.loginUser(body).subscribe({
     next: (res: any) => {
         if(res && res['status'] === 'ok'){
-          localStorage.setItem( 'token', res.data);
+          localStorage.setItem('token',res.token);          
           alert('Successfully logged in')
           this.route.navigate(['/profile']);
         }else{

@@ -11,17 +11,17 @@ exports.login = async (req, res) =>{
         if(existUser && existUser._id) {
             bcrypt.compare(password, existUser?.password,function(err, response) {
                 if(!err && response) {
-                   const auth = jwt.sign(
-                       { user_id: existUser._id, username },
+                   const token = jwt.sign(
+                       { user_id: existUser._id, username,},
                        'secretKey'
                      );
-                   res.json({status: 'ok',loginUser : true, data: {existUser , response ,auth}});
+                   res.json({status: 'ok',loginUser : true, data:{existUser , response ,token}});
                 } else {
                    res.json({status: 'warn', loginUser : false, data: 'Please enter valid password'});
                 }
             })   
         } else {
-            res.json({status: 'warn', loginUser : false, data: 'Please enter valid password'});
+            res.json({status: 'warn', loginUser : false, data: 'Please enter valid Username'});
 
         }
         }, (error) => {

@@ -17,6 +17,8 @@ import { BookingComponent } from './Components/booking/booking.component';
 import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './Components/login/login.component';
+import { AuthService } from './Services/auth.service';
+import { AuthGuard } from './Guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import { LoginComponent } from './Components/login/login.component';
     ReactiveFormsModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
