@@ -1,5 +1,6 @@
 const express = require('express');
 const Service = require('./../models/serviceModel');
+const multer = require('multer')
 
 
 exports.getServices =  async  (req, res) =>{
@@ -16,7 +17,14 @@ exports.getServices =  async  (req, res) =>{
 
 exports.addService = async(req, res) =>{
   try{
-    const newService = await Service.create(req.body)
+    const newService = await Service.create({
+      name:req.body.name,
+      description:req.body.description,
+      serviceCost: req.body.serviceCost,
+      firstImage: req.body.firstImage,
+      secondImage: req.body.secondImage,
+      thirdImage:req.body.thirdImage
+    })
     res.status(201).json({
       status: 'success',
       data: {

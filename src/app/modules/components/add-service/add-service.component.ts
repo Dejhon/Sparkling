@@ -8,6 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddServiceComponent implements OnInit {
 
+imageData!: string;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class AddServiceComponent implements OnInit {
     return this.addServiceForm.get('sDescription');
   }
 
+
   get sCost(){
     return this.addServiceForm.get('sCost');
   }
@@ -44,6 +47,26 @@ export class AddServiceComponent implements OnInit {
 
   get thirdImage(){
     return this.addServiceForm.get('thirdImage');
+  }
+
+  onFileSelect(event:any){
+    const file = (event.target!.files[0] as HTMLInputElement);
+    this.addServiceForm.patchValue({
+      firstImage: file,
+      secondImage: file,
+      thirdImage: file
+    });
+    if(file){
+      const reader = new FileReader();
+      reader.onload = () =>{
+      this.imageData = reader.result as string
+      }
+      reader.readAsDataURL()
+    }
+  }
+
+  submitForm(){
+
   }
 
 }
