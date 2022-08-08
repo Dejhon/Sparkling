@@ -19,7 +19,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './Components/login/login.component';
 import { AuthService } from './Services/auth.service';
 import { AuthGuard } from './Guards/auth.guard'
-import { AddServicesComponent } from './modules/components/add-services/add-services.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { AddServicesComponent } from './modules/components/add-services/add-serv
     BookingComponent,
     CompanyProfileComponent,
     LoginComponent,
-    AddServicesComponent,
 ],
   imports: [
     BrowserModule,
@@ -42,6 +40,7 @@ import { AddServicesComponent } from './modules/components/add-services/add-serv
     MatIconModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     MatDialogModule
   ],
   providers: [AuthService, AuthGuard],
