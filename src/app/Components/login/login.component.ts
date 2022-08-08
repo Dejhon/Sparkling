@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
 onSubmit(body:object):void{
   this.authenticate.loginUser(body).subscribe({
     next: (res: any) => {
-        if(res && res['status'] === 'ok'){
+        if(res && res['token']){
           localStorage.setItem('token',res.token);          
           alert('Successfully logged in')
           this.route.navigate(['/profile']);
