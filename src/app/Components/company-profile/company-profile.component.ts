@@ -18,4 +18,7 @@ export class CompanyProfileComponent implements OnInit {
     this.route.navigate(['/login'])
   }
 
+
+  
+
 }

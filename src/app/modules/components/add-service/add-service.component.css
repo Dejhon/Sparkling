@@ -1,0 +1,54 @@
+form{
+    margin: auto;
+    width: 450px;
+}
+
+form h2{
+    text-align: center;
+    font-family: 'Noto Serif JP', serif;
+    color: rgb(78, 0, 78);
+}
+
+form .container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.serviceName, .serviceDets, .serviceCost, .servicePic3{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.servicePics{
+    display: grid;
+    grid-template-columns: 48% 48%;
+    column-gap: 30px;
+}
+
+input{
+    height: 30px;
+    font-size: 15px;
+    outline: none;
+}
+
+textarea{
+    resize: none;
+    outline: none;
+}
+
+.btn button{
+    margin-top: 10px;
+    margin-left: 170px;
+    width: 100px;
+    padding: 5px;
+    font-size: 16px;
+    font-family: 'Noto Serif JP', serif;
+    color: white;
+    border: 1px solid purple;
+    background-color: purple;
+}
+
+.error{
+    color: red;
+}

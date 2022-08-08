@@ -71,8 +71,9 @@ body{
 }
 
 .wrapper .main_content .info{
-    margin: 100px;
+    margin: 20px;
     line-height: 25px;
+    margin-top: 20px;
 }
 
 .wrapper .main_content .info div{
