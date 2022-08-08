@@ -6,10 +6,21 @@ const { getServices,
       } = require('./../controllers/service');
 
 
+      var whitelist = ['http://localhost:4200','http://localhost:3000/sparkling/services']
+      var corsOptions = {
+        origin: function (origin, callback) {
+          if (whitelist.includes(origin) !== -1) {
+            callback(null, true)
+          } else {
+            callback(new Error('Not allowed by CORS'))
+          }
+        }
+      }
+      
 router
     .route('/')
-    .post(addService)
-    .get(getServices);
+    .post(cors(corsOptions), addService)
+    .get(cors(corsOptions), getServices);
 
 // router
 //     .route('/:id')

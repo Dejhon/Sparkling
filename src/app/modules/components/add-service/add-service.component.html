@@ -25,14 +25,14 @@
         <div class="servicePics">
             <div class="servicePic1">
                 <label for="">First Image:</label>
-                <input type="file" (change)="onFileSelect($event)" placeholder="Upload Images" formControlName="firstImage" accept="image/png, image/jpeg, image/webp, image/jpg"> 
+                <input type="file" placeholder="Upload Images" formControlName="firstImage" accept="image/png, image/jpeg, image/webp, image/jpg"> 
                 <div class="error" *ngIf="firstImage?.invalid">
                     <small>Upload image</small>
                 </div>
             </div>        
             <div class="servicePic2">
                 <label for="">Second Image:</label>
-                <input type="file" (change)="onFileSelect($event)" placeholder="Upload Images" formControlName="secondImage" accept="image/png, image/jpeg, image/webp, image/jpg"> 
+                <input type="file" placeholder="Upload Images" formControlName="secondImage" accept="image/png, image/jpeg, image/webp, image/jpg"> 
                 <div class="error" *ngIf="secondImage?.invalid">
                     <small>Upload image</small>
                 </div>
@@ -40,7 +40,7 @@
         </div>                
         <div class="servicePic3">
             <label for="">Third Image:</label>
-            <input type="file" (change)="onFileSelect($event)" placeholder="Upload Images" formControlName="thirdImage" accept="image/png, image/jpeg, image/webp, image/jpg"> 
+            <input type="file" placeholder="Upload Images" formControlName="thirdImage" accept="image/png, image/jpeg, image/webp, image/jpg"> 
             <div class="error" *ngIf="thirdImage?.invalid">
                 <small>Upload image</small>
             </div>

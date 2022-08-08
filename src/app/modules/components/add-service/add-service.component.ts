@@ -49,21 +49,21 @@ imageData!: string;
     return this.addServiceForm.get('thirdImage');
   }
 
-  onFileSelect(event:any){
-    const file = (event.target!.files[0] as HTMLInputElement);
-    this.addServiceForm.patchValue({
-      firstImage: file,
-      secondImage: file,
-      thirdImage: file
-    });
-    if(file){
-      const reader = new FileReader();
-      reader.onload = () =>{
-      this.imageData = reader.result as string
-      }
-      reader.readAsDataURL()
-    }
-  }
+  // onFileSelect(event:any){
+  //   const file = (event.target!.files[0] as HTMLInputElement);
+  //   this.addServiceForm.patchValue({
+  //     firstImage: file,
+  //     secondImage: file,
+  //     thirdImage: file
+  //   });
+  //   if(file){
+  //     const reader = new FileReader();
+  //     reader.onload = () =>{
+  //     this.imageData = reader.result as string
+  //     }
+  //     reader.readAsDataURL
+  //   }
+  // }
 
   submitForm(){
 
