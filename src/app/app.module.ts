@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { AdminRoutingModule } from './modules/admin/admin-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { FooterComponent } from './Components/footer/footer.component';
@@ -20,6 +21,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { AuthService } from './Services/auth.service';
 import { AuthGuard } from './Guards/auth.guard';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,12 +38,13 @@ import { AuthGuard } from './Guards/auth.guard';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AdminRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]

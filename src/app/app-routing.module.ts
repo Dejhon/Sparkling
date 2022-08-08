@@ -13,10 +13,9 @@ const routes: Routes = [
   { path: 'contactUs', component: ContactComponent},  
   { path: 'services', component: ServicesOfferedComponent},  
   { path: 'login', component: LoginComponent},  
-  { path: 'profile', component: CompanyProfileComponent,canActivate:[AuthGuard]}, 
-  // children:[
-  //   {path:'addService', outlet:'subRouter',component:AddservicesComponent}
-  // ]
+  { path: 'profile', component: CompanyProfileComponent,canActivate:[AuthGuard],
+    loadChildren:() => import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  }, 
 ];
 
 @NgModule({
