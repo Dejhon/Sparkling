@@ -18,7 +18,8 @@ import { CompanyProfileComponent } from './Components/company-profile/company-pr
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './Components/login/login.component';
 import { AuthService } from './Services/auth.service';
-import { AuthGuard } from './Guards/auth.guard';
+import { AuthGuard } from './Guards/auth.guard'
+import { AddServicesComponent } from './modules/components/add-services/add-services.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthGuard } from './Guards/auth.guard';
     BookingComponent,
     CompanyProfileComponent,
     LoginComponent,
+    AddServicesComponent,
 ],
   imports: [
     BrowserModule,
