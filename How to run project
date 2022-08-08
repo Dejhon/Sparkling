@@ -1,0 +1,5 @@
+1. cd in server
+2. nodemon server
+3. new terminal then run anuglar project
+
+NB: the test data for login is : Sinclair, p@$$word
