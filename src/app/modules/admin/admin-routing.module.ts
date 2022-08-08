@@ -4,12 +4,9 @@ import { AddServiceComponent } from '../components/add-service/add-service.compo
 import { AdminServicesComponent } from '../components/admin-services/admin-services.component';
 
 const routes: Routes = [
-  {path:'', component:AdminServicesComponent,children:[
     {path: '', redirectTo: '/profile/home', pathMatch: 'full'},
     {path:'home', component:AdminServicesComponent},
     {path:'addService', component:AddServiceComponent},
-  ]},
- 
 ];
 
 @NgModule({
