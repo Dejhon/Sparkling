@@ -14,7 +14,6 @@ const routes: Routes = [
   { path: 'services', component: ServicesOfferedComponent},  
   { path: 'login', component: LoginComponent},  
   { path: 'profile', component: CompanyProfileComponent,canActivate:[AuthGuard]}, 
-
   // children:[
   //   {path:'addService', outlet:'subRouter',component:AddservicesComponent}
   // ]
