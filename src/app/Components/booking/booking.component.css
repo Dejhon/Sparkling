@@ -9,13 +9,14 @@ form{
     gap: 15px;
 }
 
-form .name, .email, .address, .service{
+form .name, .email, .address, .service, .sq_ft{
     display: grid;
     grid-template-columns: 100%;
 }
 
 
-form .name input, .email input{
+form .name input, .email input, .service input,
+.sq_ft input{
     height: 30px;
     outline: transparent;
     font-size: 15px;

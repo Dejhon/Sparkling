@@ -17,7 +17,7 @@
             <h1>{{deals.name}}</h1>
             <p>{{deals.description}} </p>
             <p>${{deals.serviceCost}}/sq ft</p>
-            <button (click)="openDialog()">BOOK</button>
+            <button (click)="moveToBooking(deals._id)">BOOK</button>
         </div>
     </div>
     <div class="detailing" *ngIf="i == 1">
@@ -36,7 +36,7 @@
             <h1>{{deals.name}}</h1>
             <p>{{deals.description}}</p>
             <p>${{deals.serviceCost}}.00</p>
-            <button (click)="openDialog()">BOOK</button>
+            <button (click)="moveToBooking(deals._id)">BOOK</button>
         </div>
     </div>
     <div class="residential" *ngIf="i == 2">
@@ -55,7 +55,7 @@
             <h1>{{deals.name}}</h1>
             <p>{{deals.description}} </p>
             <p>${{deals.serviceCost}}/sq ft</p>
-            <button (click)="openDialog()">BOOK</button>
+            <button (click)="moveToBooking(deals._id)">BOOK</button>
         </div>
     </div>
     <div class="sanitize" *ngIf="i == 3">
@@ -74,7 +74,7 @@
                 <h1>{{deals.name}}</h1>
                 <p>{{deals.description}} </p>
                 <p>${{deals.serviceCost}}/sq ft</p>
-                <button (click)="openDialog()">BOOK</button>
+                <button (click)="moveToBooking(deals._id)">BOOK</button>
             </div>
         </div>
 </div>

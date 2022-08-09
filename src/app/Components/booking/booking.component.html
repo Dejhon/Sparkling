@@ -3,7 +3,7 @@
     <div class="content-wrapper">
       <div class="name">
         <label for="">Fullname</label>
-        <input type="text" placeholder="Fullname" formControlName="name">
+        <input type="text" placeholder="Fullname" formControlName="name" >
         <div class="error" *ngIf="name?.invalid && name?.touched">
           <small>Please enter a name</small>
         </div>
@@ -22,16 +22,19 @@
           <small>Please enter a name</small>
         </div>
        </div>
+       <div class="sq_ft">
+        <label for="">Square Feet:</label>
+        <input type="number" placeholder="Size of Building" formControlName="squareFeet">
+      </div>
        <div class="service">
         <label for="">Service</label>
-        <select formControlName="service">
-          <option value="">Commercial Cleaning</option>
-          <option value="">Detailing</option>
-          <option value="">Residential Cleaning</option>
-          <option value="">Sanitizing</option>
-        </select>
-        <div class="error" *ngIf="!service">
-          <small>Please select a service</small>
+        <input type="text" formControlName="service" readonly>
+        <div *ngIf="service?.valid && squareFeet?.valid">
+          <label for="">Charge:</label>
+          <input type="number">
+        </div>
+        <div class="error" *ngIf="service?.invalid">
+          <small>Please enter a service</small>
         </div>
        </div>
        <div class="submit">

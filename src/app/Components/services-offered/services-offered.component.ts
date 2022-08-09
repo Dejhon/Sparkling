@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Services } from 'src/app/models/service';
 import { DealsService } from 'src/app/Services/deals.service';
-import { BookingComponent } from '../booking/booking.component';
 
 @Component({
   selector: 'app-services-offered',
@@ -11,19 +10,26 @@ import { BookingComponent } from '../booking/booking.component';
 })
 export class ServicesOfferedComponent implements OnInit {
 
-  services!: Services[]
+  services!: Services[];
+  selected = this.services
 
-  constructor(public dialog: MatDialog, private dealsService:DealsService) { }
+  constructor(public route: Router, private dealsService:DealsService) { }
 
-  openDialog(){
-    this.dialog.open(BookingComponent,{
-      width:'50%',
-      height:'70%'
-    })
-  }
+  // openDialog(element:object):void{
+  //   this.dialog.open(BookingComponent,{
+  //     width:'50%',
+  //     height:'70%',
+  //     data:{element
+  //     }
+  //   })  
+  // }
 
   ngOnInit(): void {
     this.getServices();
+  }
+
+  moveToBooking(id:any){
+    this.route.navigate(['booking/' + id]);    
   }
 
   getServices(){
