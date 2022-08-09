@@ -1,7 +1,7 @@
 <app-header></app-header>
 
-<div class="container">
-    <div class="commercial">
+<div class="container" *ngFor="let deals of services let i = index">
+    <div class="commercial" *ngIf="i == 0">
         <div class="images">
             <div class="pic1">
                 <img src="/assets/photos/servicePhotos/commercial1.jpeg">
@@ -14,19 +14,13 @@
             <div class="pic3"><img src="/assets/photos/servicePhotos/commercial2.jpg"></div>
         </div>
         <div class="text">
-            <h1>Commercial Cleaning</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non libero quas ratione consequatur amet 
-               repellat commodi dicta ipsum aut sit doloribus delectus debitis unde, quod maxime ex. Quo possimus 
-               cum dolor porro! Expedita obcaecati exercitationem architecto tempore ab possimus id quae, eligendi sunt.
-               Libero ea voluptate facere placeat at sapiente ut itaque iusto maiores corporis id natus possimus incidunt 
-               fuga sed laudantium ipsa dolore, vel autem cupiditate totam consequatur soluta dolorum aut. Aspernatur sit 
-               architecto, nobis iste voluptates nihil, veniam blanditiis atque unde doloribus deleniti fuga amet itaque
-               eaque ipsam?
-            </p>
+            <h1>{{deals.name}}</h1>
+            <p>{{deals.description}} </p>
+            <p>${{deals.serviceCost}}/sq ft</p>
             <button (click)="openDialog()">BOOK</button>
         </div>
     </div>
-    <div class="detailing">
+    <div class="detailing" *ngIf="i == 1">
         <div class="images">
             <div class="pic1">
                 <img src="/assets/photos/servicePhotos/detailing2.webp">
@@ -39,19 +33,13 @@
             <div class="pic3"><img src="/assets/photos/servicePhotos/detailing3.jpg"></div>
         </div>
         <div class="text">
-            <h1>Detailing</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non libero quas ratione consequatur amet 
-               repellat commodi dicta ipsum aut sit doloribus delectus debitis unde, quod maxime ex. Quo possimus 
-               cum dolor porro! Expedita obcaecati exercitationem architecto tempore ab possimus id quae, eligendi sunt.
-               Libero ea voluptate facere placeat at sapiente ut itaque iusto maiores corporis id natus possimus incidunt 
-               fuga sed laudantium ipsa dolore, vel autem cupiditate totam consequatur soluta dolorum aut. Aspernatur sit 
-               architecto, nobis iste voluptates nihil, veniam blanditiis atque unde doloribus deleniti fuga amet itaque
-               eaque ipsam?
-            </p>
+            <h1>{{deals.name}}</h1>
+            <p>{{deals.description}}</p>
+            <p>${{deals.serviceCost}}.00</p>
             <button (click)="openDialog()">BOOK</button>
         </div>
     </div>
-    <div class="residential">
+    <div class="residential" *ngIf="i == 2">
         <div class="images">
             <div class="box pic1">
                 <img src="/assets/photos/servicePhotos/house1.jpeg">
@@ -64,19 +52,13 @@
             <div class="box pic3"><img src="/assets/photos/servicePhotos/house4.jpg"></div>
         </div>
         <div class="text">
-            <h1>Residential Cleaning</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non libero quas ratione consequatur amet 
-               repellat commodi dicta ipsum aut sit doloribus delectus debitis unde, quod maxime ex. Quo possimus 
-               cum dolor porro! Expedita obcaecati exercitationem architecto tempore ab possimus id quae, eligendi sunt.
-               Libero ea voluptate facere placeat at sapiente ut itaque iusto maiores corporis id natus possimus incidunt 
-               fuga sed laudantium ipsa dolore, vel autem cupiditate totam consequatur soluta dolorum aut. Aspernatur sit 
-               architecto, nobis iste voluptates nihil, veniam blanditiis atque unde doloribus deleniti fuga amet itaque
-               eaque ipsam?
-            </p>
+            <h1>{{deals.name}}</h1>
+            <p>{{deals.description}} </p>
+            <p>${{deals.serviceCost}}/sq ft</p>
             <button (click)="openDialog()">BOOK</button>
         </div>
     </div>
-    <div class="sanitize">
+    <div class="sanitize" *ngIf="i == 3">
             <div class="images">
                 <div class="box pic1">
                     <img src="/assets/photos/servicePhotos/sanitizing1.jpg">
@@ -89,15 +71,9 @@
                 <div class="box pic3"><img src="/assets/photos/servicePhotos/sanitize2.jpeg"></div>
             </div>
             <div class="text">
-                <h1>Sanitizing</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non libero quas ratione consequatur amet 
-                   repellat commodi dicta ipsum aut sit doloribus delectus debitis unde, quod maxime ex. Quo possimus 
-                   cum dolor porro! Expedita obcaecati exercitationem architecto tempore ab possimus id quae, eligendi sunt.
-                   Libero ea voluptate facere placeat at sapiente ut itaque iusto maiores corporis id natus possimus incidunt 
-                   fuga sed laudantium ipsa dolore, vel autem cupiditate totam consequatur soluta dolorum aut. Aspernatur sit 
-                   architecto, nobis iste voluptates nihil, veniam blanditiis atque unde doloribus deleniti fuga amet itaque
-                   eaque ipsam?
-                </p>
+                <h1>{{deals.name}}</h1>
+                <p>{{deals.description}} </p>
+                <p>${{deals.serviceCost}}/sq ft</p>
                 <button (click)="openDialog()">BOOK</button>
             </div>
         </div>

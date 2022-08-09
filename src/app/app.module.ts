@@ -20,6 +20,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './Components/login/login.component';
 import { AuthService } from './Services/auth.service';
 import { AuthGuard } from './Guards/auth.guard';
+import { BookingsComponent } from './modules/components/bookings/bookings.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AuthGuard } from './Guards/auth.guard';
     BookingComponent,
     CompanyProfileComponent,
     LoginComponent,
+    BookingsComponent,
 ],
   imports: [
     BrowserModule,

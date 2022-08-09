@@ -1,12 +1,12 @@
 const express = require('express');
-const Service = require('./../models/serviceModel');
+const Booking = require('./../models/bookingModel');
 const multer = require('multer')
 
 
-exports.getServices =  async  (req, res) =>{
+exports.getBookings =  async  (req, res) =>{
   try{
-    const services = await Service.find();
-    res.status(200).json(services)
+    const allbookings = await Booking.find();
+    res.status(200).json(allbookings)
   }catch(err){
     res.status(404).json({
       status:"Fail",
@@ -15,17 +15,18 @@ exports.getServices =  async  (req, res) =>{
   }
 }
 
-exports.addService = async(req, res) =>{
+exports.addReservation = async(req, res) =>{
   try{
-    const newService = await Service.create({
+    const newReservation = await Booking.create({
       name:req.body.name,
-      description:req.body.description,
-      serviceCost: req.body.serviceCost
+      email:req.body.email,
+      address: req.body.address,
+      serviceBooked: req.body.serviceBooked
     })
     res.status(201).json({
       status: 'success',
       data: {
-        service: newService
+        reservation: newReservation
       }
     });
   }catch(err){

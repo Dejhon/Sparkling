@@ -15,11 +15,16 @@ export class DealsService {
 
   constructor(private services: HttpClient) { }
 
-  getAllServices(){}
+  getAllServices(): Observable<Services[]>{
+    return this.services.get<Services[]>(this.REST_API_URL).pipe(
+      tap((allServices: any) => console.log(`SUCCESSFULLY RETREIVED SERVICES`)),
+      catchError(error => of([])),
+    );
+  }
 
   addService(data:object):Observable<Services>{
     return this.services.post<Services>(`${this.REST_API_URL}`, data).pipe(
-      tap( serviceAdded => console.log(`${JSON.stringify(serviceAdded)}`)),
+      tap( serviceAdded => console.log(`SUCCESSFULLY ADDED SERVICE`)),
       catchError( error => of())
     );
   }

@@ -6,7 +6,7 @@ const { login,
        
       } = require('../controllers/auth');
   
-var whitelist = ['http://localhost:4200','http://localhost:3000/sparkling/authentication']
+var whitelist = ['http://localhost:4200','http://localhost:3000/sparkling/authentication',]
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.includes(origin) !== -1) {

@@ -14,22 +14,7 @@ const services = new mongoose.Schema({
     serviceCost: {
             type: Number,
             required:[true, "Service cost must be declared"],
-           },
-    firstImage:
-           {
-               type: String,
-               required:true
-           },
-    secondImage:
-            {
-                type: String,
-                required:true
-            },
-    thirdImage:
-            {
-                type: String,
-                required: true
-            }
+           }
 });
 
 const Services = mongoose.model('services', services)

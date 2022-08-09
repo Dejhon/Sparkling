@@ -2,7 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const serviceRouter = require('./routes/serviceRoute');
 const userRouter = require('./routes/userRoute');
-const authRouter = require('./routes/authRoute')
+const authRouter = require('./routes/authRoute');
+const bookingRouter = require('./routes/bookingRoute');
 const app = express();
 const cors = require('cors');
 
@@ -42,8 +43,9 @@ app.use((req, res, next) =>{
 
 
 // 2) ROUTES
-    app.use('/sparkling/services',serviceRouter);
-    app.use('/sparkling/users',userRouter);
-    app.use('/sparkling/authentication',authRouter);
+app.use('/sparkling/authentication',authRouter);
+app.use('/sparkling/bookings',bookingRouter);
+app.use('/sparkling/services',serviceRouter);
+app.use('/sparkling/users',userRouter); 
 
 module.exports = app;

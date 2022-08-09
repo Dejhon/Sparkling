@@ -120,7 +120,7 @@
 
 .detailing .images .pic2{
     position: absolute;
-    top: 560px;
+    top: 590px;
     left: 830px;
     z-index: 1;
 }
@@ -136,7 +136,7 @@
 
 .detailing .images .pic3{
     position: absolute;
-    top: 620px;
+    top: 650px;
     left: 780px;
     z-index: 1;
     box-shadow: -3px 4px 62px -11px rgba(0,0,0,0.8);
@@ -199,7 +199,7 @@
 
 .residential .images .pic2{
     position: absolute;
-    top: 970px;
+    top: 1030px;
     left: 120px;
     z-index: 1;
 }
@@ -215,7 +215,7 @@
 
 .residential .images .pic3{
     position: absolute;
-    top:1030px;
+    top:1090px;
     left: 160px;
     z-index: 1;
     box-shadow: -3px 4px 62px -11px rgba(0,0,0,0.8);
@@ -279,7 +279,7 @@
 
 .sanitize .images .pic2{
     position: absolute;
-    top: 1390px;
+    top: 1480px;
     left: 830px;
     z-index: 1;
 }
@@ -295,8 +295,8 @@
 
 .sanitize .images .pic3{
     position: absolute;
-    top: 1450px;
-    left: 770px;
+    top: 1540px;
+    left: 780px;
     z-index: 1;
     box-shadow: -3px 4px 62px -11px rgba(0,0,0,0.8);
     -webkit-box-shadow: -3px 4px 62px -11px rgba(0,0,0,0.8);

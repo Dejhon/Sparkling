@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { DealsService } from 'src/app/Services/deals.service';
 
 @Component({
   selector: 'app-add-service',
@@ -8,9 +9,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddServiceComponent implements OnInit {
 
-imageData!: string;
+  constructor(private createService:DealsService) { }
 
-  constructor() { }
 
   ngOnInit(): void {
   }
@@ -19,9 +19,6 @@ imageData!: string;
     sName: new FormControl('',Validators.required),
     sDescription: new FormControl('', Validators.required),
     sCost: new FormControl('', Validators.required),
-    firstImage:new FormControl('', Validators.required),
-    secondImage:new FormControl('', Validators.required),
-    thirdImage:new FormControl('', Validators.required)
   })
 
   get sName(){
@@ -36,37 +33,23 @@ imageData!: string;
   get sCost(){
     return this.addServiceForm.get('sCost');
   }
+ 
 
-  get firstImage(){
-    return this.addServiceForm.get('firstImage');
-  }
+ 
+  addService(body:object):void{
+    this.createService.addService(body).subscribe({
+      next: (res: any) => {
+        console.log(`Body passed ${JSON.stringify(res)}`);
+      },
+      error: () => {
+        console.log(`Error occured adding student`);
+      },
+      // complete: () =>{
+      //   alert(`Student Added`);
+      //   this.route.navigate(['/home'])
+      // }
+    }
+  )}
 
-  get secondImage(){
-    return this.addServiceForm.get('secondImage');
-  }
-
-  get thirdImage(){
-    return this.addServiceForm.get('thirdImage');
-  }
-
-  // onFileSelect(event:any){
-  //   const file = (event.target!.files[0] as HTMLInputElement);
-  //   this.addServiceForm.patchValue({
-  //     firstImage: file,
-  //     secondImage: file,
-  //     thirdImage: file
-  //   });
-  //   if(file){
-  //     const reader = new FileReader();
-  //     reader.onload = () =>{
-  //     this.imageData = reader.result as string
-  //     }
-  //     reader.readAsDataURL
-  //   }
-  // }
-
-  submitForm(){
-
-  }
-
+ 
 }

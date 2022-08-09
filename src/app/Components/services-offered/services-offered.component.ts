@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { Services } from 'src/app/models/service';
+import { DealsService } from 'src/app/Services/deals.service';
 import { BookingComponent } from '../booking/booking.component';
 
 @Component({
@@ -9,7 +11,9 @@ import { BookingComponent } from '../booking/booking.component';
 })
 export class ServicesOfferedComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  services!: Services[]
+
+  constructor(public dialog: MatDialog, private dealsService:DealsService) { }
 
   openDialog(){
     this.dialog.open(BookingComponent,{
@@ -19,6 +23,13 @@ export class ServicesOfferedComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getServices();
+  }
+
+  getServices(){
+    this.dealsService.getAllServices().subscribe(
+      allServices => this.services = allServices
+    )
   }
 
 }

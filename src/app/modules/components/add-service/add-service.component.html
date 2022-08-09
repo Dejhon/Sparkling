@@ -3,51 +3,34 @@
         <h2>ADD SERVICE</h2>
         <div class="serviceName">
             <label for="">Name of Service:</label>
-            <input type="text" placeholder="Name" formControlName="sName">
-            <div class="error" *ngIf="sName?.invalid && sName?.touched">
+            <input type="text" placeholder="Name" formControlName="sName" #name>
+            <div class="error" *ngIf="sName?.invalid && sName?.touched" >
                 <small>Enter name of service</small>
             </div>
         </div>
         <div class="serviceDets">
             <label for="">Description of Service:</label>
-            <textarea cols="30" rows="10" formControlName="sDescription"></textarea>
+            <textarea cols="30" rows="10" formControlName="sDescription" #description></textarea>
             <div class="error" *ngIf="sDescription?.invalid && sDescription?.touched">
                 <small>Enter description of service</small>
             </div>
         </div>
         <div class="serviceCost">
             <label for="">Cost of Service:</label>
-            <input type="number" step="2" placeholder="Cost" formControlName="sCost">
+            <input type="number" placeholder="Cost" formControlName="sCost" #serviceCost>
             <div class="error" *ngIf="sCost?.invalid && sCost?.touched">
                 <small>Enter cost of service</small>
             </div>
         </div>
-        <div class="servicePics">
-            <div class="servicePic1">
-                <label for="">First Image:</label>
-                <input type="file" placeholder="Upload Images" formControlName="firstImage" accept="image/png, image/jpeg, image/webp, image/jpg"> 
-                <div class="error" *ngIf="firstImage?.invalid">
-                    <small>Upload image</small>
-                </div>
-            </div>        
-            <div class="servicePic2">
-                <label for="">Second Image:</label>
-                <input type="file" placeholder="Upload Images" formControlName="secondImage" accept="image/png, image/jpeg, image/webp, image/jpg"> 
-                <div class="error" *ngIf="secondImage?.invalid">
-                    <small>Upload image</small>
-                </div>
-            </div>
-        </div>                
-        <div class="servicePic3">
-            <label for="">Third Image:</label>
-            <input type="file" placeholder="Upload Images" formControlName="thirdImage" accept="image/png, image/jpeg, image/webp, image/jpg"> 
-            <div class="error" *ngIf="thirdImage?.invalid">
-                <small>Upload image</small>
-            </div>
-        </div>     
-        
         <div class="btn">
-            <button (click)="submitForm()">SUBMIT</button>
+            <button (click)="addService({name : name.value.trim(),
+                description : description.value.trim(),
+                serviceCost: serviceCost.value
+                });
+                name.value = '';
+                description.value = '';
+                serviceCost.value = '';
+                ">SUBMIT</button>
         </div>
     </div>
 </form>

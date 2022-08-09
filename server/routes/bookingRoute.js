@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const serviceController = require('./../controllers/service');
+const serviceController = require('./../controllers/bookings');
 const cors = require('cors')
-const { getServices,
-        addService,
-      } = require('./../controllers/service');
+const { getBookings, addReservation } = require('../controllers/bookings');
 
 
-      var whitelist = ['http://localhost:4200','http://localhost:3000/sparkling/services']
+      var whitelist = ['http://localhost:4200','http://localhost:3000/sparkling/bookings']
       var corsOptions = {
         origin: function (origin, callback) {
           if (whitelist.includes(origin) !== -1) {
@@ -20,8 +18,8 @@ const { getServices,
       
 router
     .route('/')
-    .get(getServices)
-    .post(addService)
+    .get(getBookings)
+    .post(addReservation)
 
 // router
 //     .route('/:id')
