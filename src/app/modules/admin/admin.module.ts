@@ -20,7 +20,7 @@ import { BookingsComponent } from '../components/bookings/bookings.component';
     AddServiceComponent,
     ViewServicesComponent,
     UpdateServicesComponent,
-    BookingsComponent
+    BookingsComponent,
   ],
   imports: [
     CommonModule,
@@ -29,7 +29,7 @@ import { BookingsComponent } from '../components/bookings/bookings.component';
     FormsModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule, 
   ]
 })
 export class AdminModule { }

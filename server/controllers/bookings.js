@@ -21,7 +21,8 @@ exports.addReservation = async(req, res) =>{
       name:req.body.name,
       email:req.body.email,
       address: req.body.address,
-      serviceBooked: req.body.serviceBooked
+      serviceBooked: req.body.serviceBooked,
+      serviceCharge: req.body.serviceCharge
     })
     res.status(201).json({
       status: 'success',
@@ -37,92 +38,67 @@ exports.addReservation = async(req, res) =>{
   }
 }
 
-// exports.getBookingsById = async (req, res) =>{
-//   try{
-//   const bookings = await Booking.find({_id: req.params.id})
-//     res.status(200).json(bookings);
-//   }catch(err){
-//     res.status(404).json({
-//       status:"Fail",
-//       message: err
-//   });
-//   }    
-// }
+exports.getReservationById = async (req, res) =>{
+  try{
+  const bookings = await Booking.find({_id: req.params.id})
+    res.status(200).json(bookings);
+  }catch(err){
+    res.status(404).json({
+      status:"Fail",
+      message: err
+  });
+  }    
+}
 
-// exports.updateStudent = async (req, res) =>{
-//   try{
-//       const update = await Student.findByIdAndUpdate(req.params.id,
-//       {
-//         name: req.body.name,
-//         email: req.body.email,
-//         cohort: req.body.cohort,
-//         grade: req.body.grade,
-//         phoneNumber: req.body.phoneNumber,
-//         registrationFee: req.body.registrationFee,
-//        },
-//        {new: true}
-//        )
+exports.updateReservation = async (req, res) =>{
+  try{
+      const update = await Booking.findByIdAndUpdate(req.params.id,
+      {
+        name: req.body.name,
+        email: req.body.email,
+        address: req.body.address,
+        serviceBooked: req.body.serviceBooked,
+        serviceCharge: req.body.serviceCharge,
+        registrationFee: req.body.registrationFee,
+       },
+       {new: true}
+       )
 
-//       res.status(200).json({
-//       status: 'success',
-//       data:{
-//         student: update
-//       }
-//     });
-//   }catch{
-//     res.status(404).json({
-//       status:"Fail",
-//       message: err
-//    });
-//   }  
-// }
+      res.status(200).json({
+      status: 'success',
+      data:{
+        student: update
+      }
+    });
+  }catch{
+    res.status(404).json({
+      status:"Fail",
+      message: err
+   });
+  }  
+}
 
-// exports.updateStudent2 = async (req, res) =>{
-//   try{
-//     const update = await Student.findByIdAndUpdate(req.params.id,
-//       {
-//         email: req.body.email,
-//         grade: req.body.grade,
-//         phoneNumber: req.body.phoneNumber
-//       },
-//       {new: true}
-//       )
-
-//     res.status(200).json({
-//     status: 'success',
-//     data:{
-//       student: update
-//     }
-//   });
-// }catch{
-//   res.status(404).json({
-//     status:"Fail",
-//     message: err
-//  });
-// }  
-// }
-
-// exports.deleteStudent = async (req, res) =>{
-//   try{
-//     if(req.params.id * 1 > Student.length){
-//       return res.status(404).json({
-//         status: 'fail',
-//         message: 'Invalid ID'
-//       });
-//     }else{
-//       const deleted = await Student.findByIdAndDelete({_id: req.params.id})
-//     // Can also be 204 if you are not returning anything in the response
-//       res.status(200).json({
-//         status: 'success',
-//         data:{
-//           student: deleted
-//         }
-//       });
-//     }    
-//     }catch(err){
-//     res.status(404).json({
-//       status:"Fail",
-//       message: err
-//    });
-//   } 
-// }
+exports.cancelReservation = async (req, res) =>{
+  try{
+    if(req.params.id * 1 > Booking.length){
+      return res.status(404).json({
+        status: 'fail',
+        message: 'Invalid ID'
+      });
+    }else{
+      const deleted = await Booking.findByIdAndDelete({_id: req.params.id})
+    // Can also be 204 if you are not returning anything in the response
+      res.status(200).json({
+        status: 'success',
+        data:{
+          Reservation: deleted
+        }
+      });
+    }    
+    }catch(err){
+    res.status(404).json({
+      status:"Fail",
+      message: err
+   });
+  } 
+}

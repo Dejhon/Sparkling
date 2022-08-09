@@ -15,13 +15,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ContactComponent } from './Components/contact/contact.component';
 import { ServicesOfferedComponent } from './Components/services-offered/services-offered.component';
 import { BookingComponent } from './Components/booking/booking.component';
-import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './Components/login/login.component';
 import { AuthService } from './Services/auth.service';
 import { AuthGuard } from './Guards/auth.guard';
 import { DealsService } from './Services/deals.service';
 import { MatCardModule } from '@angular/material/card';
+import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
 
 
 @NgModule({
@@ -34,8 +34,8 @@ import { MatCardModule } from '@angular/material/card';
     ContactComponent,
     ServicesOfferedComponent,
     BookingComponent,
-    CompanyProfileComponent,
     LoginComponent,
+    CompanyProfileComponent
 ],
   imports: [
     BrowserModule,

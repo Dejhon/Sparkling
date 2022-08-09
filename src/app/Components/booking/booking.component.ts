@@ -17,7 +17,8 @@ export class BookingComponent implements OnInit {
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/)]),
     address: new FormControl('', Validators.required),
-    service: new FormControl('',Validators.required)
+    service: new FormControl('',Validators.required),
+    servvieCost: new FormControl('', Validators.required),
   })
 
   get name(){
@@ -36,7 +37,10 @@ export class BookingComponent implements OnInit {
     return this.bookingForm.get('service')
   }
 
+  get serviceCost(){
+    return this.bookingForm.get('serviceCost')
+  }
+
   onSubmit(){}
-
-
+  
 }

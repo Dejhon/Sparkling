@@ -23,8 +23,8 @@ router
 
 router
     .route('/:id')
-    // .get(studentController.getStudentByIdEx2)
-    // .put(studentController.updateStudent)
-    // .delete(studentController.deleteStudent);
+    .get(bookingController.getReservationById)
+    .put(bookingController.updateReservation)
+    .delete(bookingController.cancelReservation);
 
 module.exports = router;
