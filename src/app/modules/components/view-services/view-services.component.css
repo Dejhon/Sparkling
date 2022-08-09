@@ -1,0 +1,12 @@
+.container{
+    padding: 10px;
+    margin-left: 100px;
+    display: grid;
+    grid-template-columns: 25% 25%;
+    grid-template-rows: 1fr;
+}
+
+mat-card{
+    width: 400px;
+    background-color: whitesmoke;
+}
