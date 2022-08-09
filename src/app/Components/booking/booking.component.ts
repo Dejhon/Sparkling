@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BookingService } from 'src/app/Services/booking.service';
 import { Services } from 'src/app/models/service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Bookings } from 'src/app/models/booking';
+import { DealsService } from 'src/app/Services/deals.service';
 
 
 @Component({
@@ -10,22 +14,18 @@ import { Services } from 'src/app/models/service';
 })
 export class BookingComponent implements OnInit {
 
-  services!:Services[]
+  selectedId : string  = this.activateRoute.snapshot.params['id'];
+  serviceSelected!: Services;
 
-  constructor() {}
+  // totalCost:any = Number(this.serviceSelected) * Number(this.squareFeet)
+
+  bookingForm!: FormGroup
+
+  constructor(private activateRoute:ActivatedRoute, private dealsService:DealsService) {}
 
   ngOnInit(): void {    
+    this.getServiceId();        
   }
-  
-
-  bookingForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/)]),
-    address: new FormControl('', Validators.required),
-    squareFeet: new FormControl('', Validators.required),
-    service: new FormControl('', Validators.required),
-    serviveCost: new FormControl( '', Validators.required),
-  })
 
   get name(){
     return this.bookingForm.get('name')
@@ -47,8 +47,22 @@ export class BookingComponent implements OnInit {
     return this.bookingForm.get('service')
   }
 
-  get serviceCost(){
-    return this.bookingForm.get('serviceCost')
+  // get serviceCost(){
+  //   return this.bookingForm.get('serviceCost')
+  // }
+
+  getServiceId(){
+    this.dealsService.getServiceByID(this.selectedId).subscribe((serviceSelect) => {
+      this.serviceSelected = serviceSelect[0]    
+      this.bookingForm = new FormGroup({
+        name: new FormControl('', Validators.required),
+        email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/)]),
+        address: new FormControl('', Validators.required),
+        squareFeet: new FormControl('', Validators.required),
+        service: new FormControl(this.serviceSelected.name, Validators.required),
+        // serviveCost: new FormControl(, Validators.required),
+      })     
+    }) 
   }
 
   onSubmit(){}

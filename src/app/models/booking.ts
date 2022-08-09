@@ -4,7 +4,7 @@ export class Bookings {
     email: string;
     address: string;
     serviceBooked: string;
-    serviceCharge: Number;
+    serviceCharge: number;
 
     constructor(id?: string, name?: string, email?: string, serviceCharge?: number,
         serviceBooked?: string, address?:string){

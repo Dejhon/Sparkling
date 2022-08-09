@@ -22,6 +22,7 @@ import { AuthGuard } from './Guards/auth.guard';
 import { DealsService } from './Services/deals.service';
 import { MatCardModule } from '@angular/material/card';
 import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { CompanyProfileComponent } from './Components/company-profile/company-pr
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [AuthService, AuthGuard, DealsService],
   bootstrap: [AppComponent]
