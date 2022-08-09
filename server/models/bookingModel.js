@@ -16,6 +16,10 @@ const booking = new mongoose.Schema({
     serviceBooked:{
         type:String,
         required:true
+    },
+    serviceCharge:{
+        type:Number,
+        required: true
     }
     
 });
