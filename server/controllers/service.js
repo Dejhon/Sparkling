@@ -36,92 +36,64 @@ exports.addService = async(req, res) =>{
   }
 }
 
-// exports.getStudentByIdEx2 = async (req, res) =>{
-//   try{
-//   const student = await Student.find({_id: req.params.id})
-//     res.status(200).json(student);
-//   }catch(err){
-//     res.status(404).json({
-//       status:"Fail",
-//       message: err
-//   });
-//   }    
-// }
+exports.getServiceById = async (req, res) =>{
+  try{
+  const service = await Service.find({_id: req.params.id})
+    res.status(200).json(service);
+  }catch(err){
+    res.status(404).json({
+      status:"Fail",
+      message: err
+  });
+  }    
+}
 
-// exports.updateStudent = async (req, res) =>{
-//   try{
-//       const update = await Student.findByIdAndUpdate(req.params.id,
-//       {
-//         name: req.body.name,
-//         email: req.body.email,
-//         cohort: req.body.cohort,
-//         grade: req.body.grade,
-//         phoneNumber: req.body.phoneNumber,
-//         registrationFee: req.body.registrationFee,
-//        },
-//        {new: true}
-//        )
+exports.updateService = async (req, res) =>{
+  try{
+      const update = await Service.findByIdAndUpdate(req.params.id,
+      {
+        name: req.body.name,
+        description: req.body.description,
+        serviceCost: req.body.serviceCost,
+       },
+       {new: true}
+       )
 
-//       res.status(200).json({
-//       status: 'success',
-//       data:{
-//         student: update
-//       }
-//     });
-//   }catch{
-//     res.status(404).json({
-//       status:"Fail",
-//       message: err
-//    });
-//   }  
-// }
+      res.status(200).json({
+      status: 'success',
+      data:{
+        Service: update
+      }
+    });
+  }catch{
+    res.status(404).json({
+      status:"Fail",
+      message: err
+   });
+  }  
+}
 
-// exports.updateStudent2 = async (req, res) =>{
-//   try{
-//     const update = await Student.findByIdAndUpdate(req.params.id,
-//       {
-//         email: req.body.email,
-//         grade: req.body.grade,
-//         phoneNumber: req.body.phoneNumber
-//       },
-//       {new: true}
-//       )
-
-//     res.status(200).json({
-//     status: 'success',
-//     data:{
-//       student: update
-//     }
-//   });
-// }catch{
-//   res.status(404).json({
-//     status:"Fail",
-//     message: err
-//  });
-// }  
-// }
-
-// exports.deleteStudent = async (req, res) =>{
-//   try{
-//     if(req.params.id * 1 > Student.length){
-//       return res.status(404).json({
-//         status: 'fail',
-//         message: 'Invalid ID'
-//       });
-//     }else{
-//       const deleted = await Student.findByIdAndDelete({_id: req.params.id})
-//     // Can also be 204 if you are not returning anything in the response
-//       res.status(200).json({
-//         status: 'success',
-//         data:{
-//           student: deleted
-//         }
-//       });
-//     }    
-//     }catch(err){
-//     res.status(404).json({
-//       status:"Fail",
-//       message: err
-//    });
-//   } 
-// }
+exports.deleteService = async (req, res) =>{
+  try{
+    if(req.params.id * 1 > Service.length){
+      return res.status(404).json({
+        status: 'fail',
+        message: 'Invalid ID'
+      });
+    }else{
+      const deleted = await Service.findByIdAndDelete({_id: req.params.id})
+    // Can also be 204 if you are not returning anything in the response
+      res.status(200).json({
+        status: 'success',
+        data:{
+          Service: deleted
+        }
+      });
+    }    
+    }catch(err){
+    res.status(404).json({
+      status:"Fail",
+      message: err
+   });
+  } 
+}

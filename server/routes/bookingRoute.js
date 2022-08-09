@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const serviceController = require('./../controllers/bookings');
+const bookingController = require('./../controllers/bookings');
 const cors = require('cors')
 const { getBookings, addReservation } = require('../controllers/bookings');
 
@@ -21,11 +21,10 @@ router
     .get(getBookings)
     .post(addReservation)
 
-// router
-//     .route('/:id')
-//     .get(studentController.getStudentByIdEx2)
-//     .patch(studentController.updateStudent2)
-//     .put(studentController.updateStudent)
-//     .delete(studentController.deleteStudent);
+router
+    .route('/:id')
+    // .get(studentController.getStudentByIdEx2)
+    // .put(studentController.updateStudent)
+    // .delete(studentController.deleteStudent);
 
 module.exports = router;

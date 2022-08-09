@@ -37,10 +37,10 @@ exports.addReservation = async(req, res) =>{
   }
 }
 
-// exports.getStudentByIdEx2 = async (req, res) =>{
+// exports.getBookingsById = async (req, res) =>{
 //   try{
-//   const student = await Student.find({_id: req.params.id})
-//     res.status(200).json(student);
+//   const bookings = await Booking.find({_id: req.params.id})
+//     res.status(200).json(bookings);
 //   }catch(err){
 //     res.status(404).json({
 //       status:"Fail",

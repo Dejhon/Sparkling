@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DealsService } from 'src/app/Services/deals.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { DealsService } from 'src/app/Services/deals.service';
 })
 export class AddServiceComponent implements OnInit {
 
-  constructor(private createService:DealsService) { }
+  constructor(private createService:DealsService, private route:Router) { }
 
 
   ngOnInit(): void {
@@ -40,6 +41,7 @@ export class AddServiceComponent implements OnInit {
     this.createService.addService(body).subscribe({
       next: (res: any) => {
         console.log(`Body passed ${JSON.stringify(res)}`);
+        this.route.navigate(['/profile/view-services'])
       },
       error: () => {
         console.log(`Error occured adding student`);

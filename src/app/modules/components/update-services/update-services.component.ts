@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { DealsService } from 'src/app/Services/deals.service';
+import { Services } from 'src/app/models/service';
 
 @Component({
   selector: 'app-update-services',
@@ -10,27 +11,52 @@ import { DealsService } from 'src/app/Services/deals.service';
 })
 export class UpdateServicesComponent implements OnInit {
 
-  constructor(private route: Router, private dealsService:DealsService) { }
+  selectedId : string  = this.activateRoute.snapshot.params['id'];
+  service!: Services;
+  updateServiceForm!: FormGroup;
 
-  addServiceForm = new FormGroup({
-    sName: new FormControl('',Validators.required),
-    sDescription: new FormControl('', Validators.required),
-    sCost: new FormControl('', Validators.required),
-  })
+  constructor(private route: Router, private dealsService:DealsService, private activateRoute:ActivatedRoute) { }
 
-  get sName(){
-    return this.addServiceForm.get('sName');
+  getServiceId(){
+    this.dealsService.getServiceByID(this.selectedId).subscribe((serviceEdit) => {
+      this.service = serviceEdit[0]    
+      console.log(this.service);
+        
+      this.updateServiceForm = new FormGroup({
+        name: new FormControl(serviceEdit[0].name),
+        description: new FormControl(serviceEdit[0].description),
+        serviceCost: new FormControl(serviceEdit[0].serviceCost),
+      })      
+    }) 
   }
 
-  get sDescription(){
-    return this.addServiceForm.get('sDescription');
-  }
+  // get name(){
+  //   return this.updateServiceForm.get('name')
+  // }
+  // get description(){
+  //   return this.updateServiceForm.get('description')
+  // }
+  // get serviceCost(){
+  //   return this.updateServiceForm.get('serviceCost')
+  // }
 
-  get sCost(){
-    return this.addServiceForm.get('sCost');
+  update(body:object){
+    if(window.confirm("Confirm Update")){
+      this.dealsService.updateService(this.selectedId , body).subscribe({
+        next: (res) => {
+        },
+        error: () => {
+          console.log(`Error while updating record`);
+        },
+        complete: () => {
+          this.route.navigate(['/profile/view-services']);
+        }
+       })
+    }
   }
 
   ngOnInit(): void {
+    this.getServiceId();
   }
 
 }

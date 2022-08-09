@@ -9,7 +9,8 @@ import { ViewServicesComponent } from '../components/view-services/view-services
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { UpdateServicesComponent } from '../components/update-services/update-services.component';
+import { BookingsComponent } from '../components/bookings/bookings.component';
 
 
 
@@ -17,7 +18,9 @@ import { MatDialogModule } from '@angular/material/dialog';
   declarations: [
     AdminServicesComponent,
     AddServiceComponent,
-    ViewServicesComponent
+    ViewServicesComponent,
+    UpdateServicesComponent,
+    BookingsComponent
   ],
   imports: [
     CommonModule,

@@ -23,11 +23,10 @@ router
     .get(getServices)
     .post(addService)
 
-// router
-//     .route('/:id')
-//     .get(studentController.getStudentByIdEx2)
-//     .patch(studentController.updateStudent2)
-//     .put(studentController.updateStudent)
-//     .delete(studentController.deleteStudent);
+router
+    .route('/:id')
+    .get(serviceController.getServiceById)
+    .put(serviceController.updateService)
+    .delete(serviceController.deleteService);
 
 module.exports = router;

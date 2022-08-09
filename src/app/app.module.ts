@@ -22,8 +22,6 @@ import { AuthService } from './Services/auth.service';
 import { AuthGuard } from './Guards/auth.guard';
 import { DealsService } from './Services/deals.service';
 import { MatCardModule } from '@angular/material/card';
-import { BookingsComponent } from './modules/components/bookings/bookings.component';
-import { UpdateServicesComponent } from './modules/components/update-services/update-services.component';
 
 
 @NgModule({
@@ -38,8 +36,6 @@ import { UpdateServicesComponent } from './modules/components/update-services/up
     BookingComponent,
     CompanyProfileComponent,
     LoginComponent,
-    BookingsComponent,
-    UpdateServicesComponent
 ],
   imports: [
     BrowserModule,

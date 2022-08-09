@@ -1,29 +1,33 @@
-<form action="" [formGroup]="addServiceForm">
+<form action="" [formGroup]="updateServiceForm">
     <div class="container">
-        <h2>ADD SERVICE</h2>
+        <h2>UPDATE SERVICE</h2>
         <div class="serviceName">
             <label for="">Name of Service:</label>
-            <input type="text" placeholder="Name" formControlName="sName" #name>
-            <div class="error" *ngIf="sName?.invalid && sName?.touched" >
+            <input type="text" formControlName="name" #Sname value="{{service.name}}">
+            <!-- <div class="error" *ngIf="name?.invalid && name?.touched" >
                 <small>Enter name of service</small>
-            </div>
+            </div> -->
         </div>
         <div class="serviceDets">
             <label for="">Description of Service:</label>
-            <textarea cols="30" rows="10" formControlName="sDescription" #description></textarea>
-            <div class="error" *ngIf="sDescription?.invalid && sDescription?.touched">
+            <textarea cols="30" rows="10" formControlName="description" #Sdescription value="{{service.description}}"></textarea>
+            <!-- <div class="error" *ngIf="description?.invalid && description?.touched">
                 <small>Enter description of service</small>
-            </div>
+            </div> -->
         </div>
         <div class="serviceCost">
             <label for="">Cost of Service:</label>
-            <input type="number" placeholder="Cost" formControlName="sCost" #serviceCost>
-            <div class="error" *ngIf="sCost?.invalid && sCost?.touched">
+            <input type="number"  formControlName="serviceCost" #SCost value="{{service.serviceCost}}">
+            <!-- <div class="error" *ngIf="serviceCost?.invalid && serviceCost?.touched">
                 <small>Enter cost of service</small>
-            </div>
+            </div> -->
         </div>
         <div class="btn">
-            <button >Update</button>
+            <button (click)="update(
+                 {name: Sname.value.trim(),
+                 description: Sdescription.value.trim(),
+                 serviceCost: SCost.value})
+            ">Update</button>
         </div>
     </div>
 </form>
