@@ -18,7 +18,7 @@ export class AuthService {
 
   loginUser(data:object):Observable<Users>{
     return this.auth.post<Users>(`${this.REST_API_URL}`, data).pipe(
-      tap( userLoggedIn => console.log(`${JSON.stringify(userLoggedIn)}`)),
+      tap( userLoggedIn => console.log(`Logged In`)),
       catchError( error => of())
     );
   }
