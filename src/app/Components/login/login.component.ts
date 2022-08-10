@@ -45,13 +45,14 @@ onSubmit(body:object):void{
           localStorage.setItem('token',res.token); 
           this.message.nativeElement.innerHTML ="LOGIN SUCCESSFUL";
           this.message.nativeElement.style.color ="green"
+          this.message.nativeElement.style.marginBottom ="-20px"
           setInterval(()=>{
             this.route.navigate(['/profile'])
           },500);
         }else{
           this.message.nativeElement.innerHTML ="INVALID CREDENTIALS"
           this.message.nativeElement.style.color ="red"
-          // this.route.navigate(['/login'])
+          this.message.nativeElement.style.marginBottom ="-20px"
         }
     },
     error: () => {
