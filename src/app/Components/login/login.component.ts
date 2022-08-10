@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Users } from 'src/app/models/Users';
 import { AuthService } from 'src/app/Services/auth.service';
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  @ViewChild('message') message!: ElementRef;
 
   visibility = false
   user!: Users;
@@ -40,11 +42,16 @@ onSubmit(body:object):void{
   this.authenticate.loginUser(body).subscribe({
     next: (res: any) => {
         if(res && res['token']){
-          localStorage.setItem('token',res.token);          
-          alert('Successfully logged in')
-          this.route.navigate(['/profile']);
+          localStorage.setItem('token',res.token); 
+          this.message.nativeElement.innerHTML ="LOGIN SUCCESSFUL";
+          this.message.nativeElement.style.color ="green"
+          setInterval(()=>{
+            this.route.navigate(['/profile'])
+          },500);
         }else{
-          this.route.navigate(['/login'])
+          this.message.nativeElement.innerHTML ="INVALID CREDENTIALS"
+          this.message.nativeElement.style.color ="red"
+          // this.route.navigate(['/login'])
         }
     },
     error: () => {

@@ -7,6 +7,7 @@
         <form action="" [formGroup]="loginForm">
             <div class="container">
                 <h1>SPARKLING</h1>
+                <div class="message" #message></div>
                 <div class="userNm">
                     <input type="text" placeholder="Username" formControlName="username" #userName>
                     <div class="error" *ngIf="username?.invalid && username?.touched"  >
