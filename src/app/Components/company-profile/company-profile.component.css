@@ -1,5 +1,5 @@
 *{
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     list-style: none;
     text-decoration: none;
 }
@@ -9,8 +9,7 @@ body{
 }
 
 .wrapper{
-    display: flex;
-    position: relative;
+    display: grid;
     gap: 30px;
 }
 
@@ -33,7 +32,7 @@ body{
 }
 
 .wrapper .sidebar ul li{
-    padding: 15px;
+    padding: 30px 0 20px 30px;
     text-align: left;
 }
 
@@ -49,13 +48,16 @@ body{
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
+    margin-top: -10px;
 }
 
 .wrapper .sidebar ul li:hover{
-    background-color: plum;
-    color: white;
+    background-color: white;
 }
 
+.wrapper .sidebar ul li:hover > a{
+    color: purple;
+}
 
 .wrapper .main_content{
     width: 80%;
