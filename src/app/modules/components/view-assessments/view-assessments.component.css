@@ -1,0 +1,48 @@
+.container{
+    padding: 50px 25px 50px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 50px;
+}
+
+.cards{
+    width:250px;  
+}
+
+input[type=search]{
+    width: 90%;
+    margin-left: 120px;
+    margin-top: 30px;
+    font-size: 16px;
+    border: 1px solid gray;
+    height: 30px;
+    outline: none;
+    padding-left: 10px;
+}
+
+mat-card{
+    background-color: whitesmoke;
+}
+
+mat-card-actions{
+    display: flex;
+    flex-direction: row;
+}
+
+.edit{
+    color: green;
+}
+
+.delete{
+    color: red;
+}
+
+.account{
+    color: blue;
+}
+
+#view{
+    color: blue;
+    cursor: pointer;
+}

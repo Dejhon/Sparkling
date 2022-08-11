@@ -22,7 +22,9 @@ import { AuthGuard } from './Guards/auth.guard';
 import { DealsService } from './Services/deals.service';
 import { MatCardModule } from '@angular/material/card';
 import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { AssessService } from './Services/assess.service';
+import { BookingService } from './Services/booking.service';
 
 
 @NgModule({
@@ -36,7 +38,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     ServicesOfferedComponent,
     BookingComponent,
     LoginComponent,
-    CompanyProfileComponent
+    CompanyProfileComponent,
 ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatCardModule,
     MatTabsModule
   ],
-  providers: [AuthService, AuthGuard, DealsService],
+  providers: [AuthService, AuthGuard, DealsService,AssessService,BookingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

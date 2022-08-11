@@ -11,7 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateServicesComponent } from '../components/update-services/update-services.component';
 import { BookingsComponent } from '../components/bookings/bookings.component';
-
+import { ViewAssessmentsComponent } from '../components/view-assessments/view-assessments.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { BookingsComponent } from '../components/bookings/bookings.component';
     ViewServicesComponent,
     UpdateServicesComponent,
     BookingsComponent,
+    ViewAssessmentsComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { BookingsComponent } from '../components/bookings/bookings.component';
     MatCardModule,
     MatButtonModule,
     MatDialogModule, 
+    Ng2SearchPipeModule
   ]
 })
 export class AdminModule { }

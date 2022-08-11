@@ -1,0 +1,19 @@
+<input type="search" placeholder="Search for assessment" [(ngModel)]="searchText">
+<div class="container">
+    <div class="cards" *ngFor="let assess of assessments  | filter:searchText ">
+        <mat-card class="example-card">
+            <mat-card-title>{{assess.name}}</mat-card-title>
+            <mat-card-subtitle>{{assess._id}}</mat-card-subtitle>
+            <mat-card-content>
+               <label for="">Email:</label>
+               <p>{{assess.email}}</p>
+               <label for="">Address:</label>
+               <p>{{assess.address}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button class="edit" mat-button >Edit</button>
+              <button class="delete" mat-button >Delete</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+  </div>
