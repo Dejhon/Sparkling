@@ -2,7 +2,7 @@ const express = require('express');
 const User = require('../models/loginModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const  secret_key = "doctorBird_";
+const secret_key = "doctorBird_";
 const expiry = 60
 
 exports.login = async (req, res) =>{

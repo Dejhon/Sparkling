@@ -4,6 +4,7 @@ const serviceRouter = require('./routes/serviceRoute');
 const userRouter = require('./routes/userRoute');
 const authRouter = require('./routes/authRoute');
 const bookingRouter = require('./routes/bookingRoute');
+const assessRouter = require('./routes/assesmentRoute');
 const app = express();
 const cors = require('cors');
 
@@ -44,6 +45,7 @@ app.use((req, res, next) =>{
 
 // 2) ROUTES
 app.use('/sparkling/authentication',authRouter);
+app.use('/sparkling/assessment',assessRouter);
 app.use('/sparkling/bookings',bookingRouter);
 app.use('/sparkling/services',serviceRouter);
 app.use('/sparkling/users',userRouter); 

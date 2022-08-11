@@ -1,6 +1,5 @@
 const express = require('express');
 const Service = require('./../models/serviceModel');
-const multer = require('multer')
 
 
 exports.getServices =  async  (req, res) =>{

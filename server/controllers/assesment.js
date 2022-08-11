@@ -1,11 +1,11 @@
 const express = require('express');
-const Booking = require('./../models/bookingModel');
+const Assessment = require('./../models/assessmentModel');
 
 
-exports.getBookings =  async  (req, res) =>{
+exports.getAssessment =  async  (req, res) =>{
   try{
-    const allbookings = await Booking.find();
-    res.status(200).json(allbookings)
+    const allAssessments = await Assessment.find();
+    res.status(200).json(allAssessments)
   }catch(err){
     res.status(404).json({
       status:"Fail",
@@ -14,19 +14,17 @@ exports.getBookings =  async  (req, res) =>{
   }
 }
 
-exports.addReservation = async(req, res) =>{
+exports.addAssessment = async(req, res) =>{
   try{
-    const newReservation = await Booking.create({
+    const newAssessment = await Assessment.create({
       name:req.body.name,
       email:req.body.email,
-      address: req.body.address,
-      serviceBooked: req.body.serviceBooked,
-      serviceCharge: req.body.serviceCharge
+      address: req.body.address
     })
     res.status(201).json({
       status: 'success',
       data: {
-        reservation: newReservation
+        assessment: newAssessment
       }
     });
   }catch(err){
@@ -37,10 +35,10 @@ exports.addReservation = async(req, res) =>{
   }
 }
 
-exports.getReservationById = async (req, res) =>{
+exports.getAssessmentById = async (req, res) =>{
   try{
-  const bookings = await Booking.find({_id: req.params.id})
-    res.status(200).json(bookings);
+  const assessment = await Assessment.find({_id: req.params.id})
+    res.status(200).json(assessment);
   }catch(err){
     res.status(404).json({
       status:"Fail",
@@ -49,16 +47,13 @@ exports.getReservationById = async (req, res) =>{
   }    
 }
 
-exports.updateReservation = async (req, res) =>{
+exports.updateAssessement = async (req, res) =>{
   try{
-      const update = await Booking.findByIdAndUpdate(req.params.id,
+      const update = await Assessment.findByIdAndUpdate(req.params.id,
       {
         name: req.body.name,
         email: req.body.email,
-        address: req.body.address,
-        serviceBooked: req.body.serviceBooked,
-        serviceCharge: req.body.serviceCharge,
-        registrationFee: req.body.registrationFee,
+        address: req.body.address
        },
        {new: true}
        )
@@ -66,7 +61,7 @@ exports.updateReservation = async (req, res) =>{
       res.status(200).json({
       status: 'success',
       data:{
-        booking: update
+        Assessment: update
       }
     });
   }catch{
@@ -77,20 +72,20 @@ exports.updateReservation = async (req, res) =>{
   }  
 }
 
-exports.cancelReservation = async (req, res) =>{
+exports.removeAssessment = async (req, res) =>{
   try{
-    if(req.params.id * 1 > Booking.length){
+    if(req.params.id * 1 > Assessment.length){
       return res.status(404).json({
         status: 'fail',
         message: 'Invalid ID'
       });
     }else{
-      const deleted = await Booking.findByIdAndDelete({_id: req.params.id})
+      const deleted = await Assessment.findByIdAndDelete({_id: req.params.id})
     // Can also be 204 if you are not returning anything in the response
       res.status(200).json({
         status: 'success',
         data:{
-          Reservation: deleted
+          assessment: deleted
         }
       });
     }    
