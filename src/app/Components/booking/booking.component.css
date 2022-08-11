@@ -19,18 +19,35 @@ form{
     gap: 15px;
 }
 
-.wrap1, .wrap2{
+.wrap1{
     display: grid;
     grid-template-columns: 49% 49%;
     column-gap: 3%;
 }
 
-.wrap1 input, .wrap2 input{
+.wrap2{
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.wrap2 input{
+    height: 30px;
+    border: 1px solid gray;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+}
+
+.wrap1 input{
     width: 190px;
     height: 30px;
     outline: none;
     border: 1px solid gray;
     font-family: 'Roboto', sans-serif;
+}
+
+.sq_ft, .service{
+    display: grid;
+    grid-template-columns: 100%;
 }
 
 .address{

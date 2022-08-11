@@ -11,7 +11,7 @@
     background-color: #333333;
     height: 500px;
     margin-top: -32px;
-    opacity: 45%;
+    opacity: 55%;
 }
 
 .assess .frm{
@@ -93,6 +93,7 @@ form .submit button:hover{
 .error{
     position: relative;
     color: red;
+    letter-spacing: 2px;
 }
 
 

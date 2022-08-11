@@ -3,7 +3,7 @@
 <mat-tab-group mat-align-tabs="center" color="accent">
   <mat-tab label="Booking" >
 
-    <form [formGroup]="bookingForm" *ngIf="bookingForm" (submit)="onSubmit()">
+    <form [formGroup]="bookingForm" *ngIf="bookingForm">
       <div class="content-wrapper">
         <div class="wrap1">
           <div class="name">
@@ -22,9 +22,9 @@
            </div>
         </div>
         <div class="wrap2">
-          <div class="sq_ft">
+          <div class="sq_ft" *ngIf="serviceSelected.name == 'Commercial Cleaning' || serviceSelected.name == 'Residential Cleaning' || serviceSelected.name == 'Sanitizing'">
             <label for="">Square Feet:</label>
-            <input type="number" placeholder="Size of Building" #SQFT formControlName="squareFeet">
+            <input type="number" placeholder="Size of Building" formControlName="squareFeet">
           </div>
            <div class="service">
             <label for="">Service</label>
@@ -40,11 +40,10 @@
           <div class="error" *ngIf="address?.invalid && address?.touched">
             <small>Please enter a name</small>
           </div>
-         </div>
-         <div class="charge" *ngIf="squareFeet?.valid">
-          <!-- <label for="">Charge:{{}}}</label> -->
-         </div>
-         
+         </div>  
+         <!-- <div #cost *ngIf="bookingForm?.valid">
+             <input type="number" readonly formControlName="serviceCost">
+         </div>        -->
          <div class="submit">
             <button>SUBMIT</button>
          </div>
