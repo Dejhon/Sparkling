@@ -5,29 +5,37 @@
         <div class="txt">
             <h1>BOOK AN ASSESMENT</h1>
             <p>Want us to assess your property before cleaning?</p>
+            <div class="message" #message></div>
           </div>
-        <form [formGroup]="assessmentForm" (submit)="submitForm()">
+        <form [formGroup]="assessmentForm">
           <div class="content-wrapper">
             <div class="name">
-              <input type="text" placeholder="Fullname" formControlName="name">
+              <input type="text" placeholder="Fullname" formControlName="name" #NAME>
               <div class="error" *ngIf="name?.invalid && name?.touched">
                 <small>Please enter a name</small>
               </div>
              </div>
              <div class="email">
-              <input type="email" placeholder="Email Address" formControlName="email">
-              <div class="error" *ngIf="email?.invalid && email?.touched">
+              <input type="email" placeholder="Email Address" formControlName="email" #EMAIL>
+              <div class="error" *ngIf="email?.invalid && email?.touched" >
                 <small>Please enter a valid email address</small>
               </div>
              </div>
              <div class="address">
-              <textarea cols="30" rows="6" placeholder="Address" formControlName="address"></textarea>
+              <textarea cols="30" rows="6" placeholder="Address" formControlName="address" #ADDRESS></textarea>
               <div class="error" *ngIf="address?.invalid && address?.touched">
                 <small>Please enter an address </small>
               </div>
              </div>
              <div class="submit">
-                <button>SUBMIT</button>
+                <button (click)="onSubmit({name : NAME.value.trim(),
+                  email: EMAIL.value.trim(),
+                  address: ADDRESS.value
+                  });
+                  NAME.value = '';
+                  EMAIL.value = '';
+                  ADDRESS.value = '';
+                  ">SUBMIT</button>
              </div>
           </div>
         </form>

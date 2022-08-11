@@ -36,9 +36,13 @@
     font-family: 'Noto Serif JP', serif;
 }
 
+.assess .frm .message{
+    margin-bottom: -20px;
+}
+
 .assess .frm form{
     width: 500px;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .content-wrapper{
