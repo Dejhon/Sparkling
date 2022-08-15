@@ -17,8 +17,9 @@ export class BookingComponent implements OnInit {
   @ViewChild('cost') cost!: ElementRef
   selectedId : string  = this.activateRoute.snapshot.params['id'];
   serviceSelected!: Services;
-  bookingForm!: FormGroup
-  SQFT!:number
+  bookingForm!: FormGroup;
+  SQFT!:number;
+  serviceAmount!:number;
 
   constructor(private activateRoute:ActivatedRoute, private dealsService:DealsService,
               private bookingService: BookingService  
@@ -40,29 +41,29 @@ export class BookingComponent implements OnInit {
     return this.bookingForm.get('address')
   }
 
-  // get squareFeet(){
-  //   return this.bookingForm.get('squareFeet')
-  // }
+  get squareFeet(){
+    return this.bookingForm.get('squareFeet')
+  }
 
   get service(){
     return this.bookingForm.get('service')
   }
 
-  get serviceCost(){
-    return this.bookingForm.get('serviceCost')
+  get serviceCharge(){
+    return this.bookingForm.get('serviceCharge')
   }
 
   getServiceId(){
     this.dealsService.getServiceByID(this.selectedId).subscribe((serviceSelect) => {
-      this.serviceSelected = serviceSelect[0]    
-
+      this.serviceSelected = serviceSelect[0]   
+      this.serviceAmount = serviceSelect[0].serviceCharge;
       this.bookingForm = new FormGroup({
         name: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/)]),
         address: new FormControl('', Validators.required),
         squareFeet: new FormControl(''),
         service: new FormControl(this.serviceSelected.name, Validators.required),
-        serviveCost: new FormControl((Number(this.serviceSelected.serviceCost)* this.SQFT) , Validators.required),
+        serviceCharge: new FormControl((this.serviceAmount * this.SQFT)),
       })     
     }) 
   }

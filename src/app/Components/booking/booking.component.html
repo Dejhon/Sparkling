@@ -24,8 +24,9 @@
         <div class="wrap2">
           <div class="sq_ft" *ngIf="serviceSelected.name == 'Commercial Cleaning' || serviceSelected.name == 'Residential Cleaning' || serviceSelected.name == 'Sanitizing'">
             <label for="">Square Feet:</label>
-            <input type="number" placeholder="Size of Building" formControlName="squareFeet">
+            <input type="number" placeholder="Size of Building" formControlName="squareFeet" ngModel="SQFT" #SQFT>
           </div>
+          {{SQFT}}
            <div class="service">
             <label for="">Service</label>
             <input type="text" formControlName="service" readonly>
@@ -41,9 +42,10 @@
             <small>Please enter a name</small>
           </div>
          </div>  
-         <!-- <div #cost *ngIf="bookingForm?.valid">
-             <input type="number" readonly formControlName="serviceCost">
-         </div>        -->
+         <div #cost *ngIf="bookingForm?.valid">
+             <input type="number" readonly formControlName="serviceCharge">
+             <!-- <p>{{serviceCost}}</p> -->
+         </div>       
          <div class="submit">
             <button>SUBMIT</button>
          </div>
