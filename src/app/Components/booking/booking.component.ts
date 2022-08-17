@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookingService } from 'src/app/Services/booking.service';
-import { Services } from 'src/app/models/service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Bookings } from 'src/app/models/booking';
 import { DealsService } from 'src/app/Services/deals.service';
+import { Services } from 'src/app/models/service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class BookingComponent implements OnInit {
   serviceSelected!: Services;
   bookingForm!: FormGroup;
   SQFT!:number;
-  serviceAmount!:number;
+  serviceAmount = 0;
 
   constructor(private activateRoute:ActivatedRoute, private dealsService:DealsService,
               private bookingService: BookingService  
@@ -56,16 +56,21 @@ export class BookingComponent implements OnInit {
   getServiceId(){
     this.dealsService.getServiceByID(this.selectedId).subscribe((serviceSelect) => {
       this.serviceSelected = serviceSelect[0]   
-      this.serviceAmount = serviceSelect[0].serviceCharge;
+      this.serviceAmount = this.serviceSelected.serviceCost;
       this.bookingForm = new FormGroup({
         name: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/)]),
         address: new FormControl('', Validators.required),
-        squareFeet: new FormControl(''),
+        squareFeet: new FormControl('', Validators.required),
         service: new FormControl(this.serviceSelected.name, Validators.required),
-        serviceCharge: new FormControl((this.serviceAmount * this.SQFT)),
+        serviceCharge: new FormControl((this.serviceAmount)),
       })     
     }) 
+  }
+
+  onChange(){
+    let charge = this.serviceAmount * this.bookingForm.get("squareFeet")?.value 
+    this.bookingForm.get("serviceCharge")?.setValue(charge)
   }
 
   onSubmit(body:object){
@@ -74,7 +79,6 @@ export class BookingComponent implements OnInit {
     }else{
       this.bookingService.addReservation(body).subscribe({
         next:(res)=>{
-
         },
         error:(err)=>{
           console.log(err);          

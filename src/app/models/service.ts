@@ -2,7 +2,7 @@ export class Services {
     _id: string;
     name: string;
     description: string;
-    serviceCost: Number;
+    serviceCost: number;
 
     constructor(id?: string, name?: string, description?: string, serviceCost?: number){
         this._id = id!;
