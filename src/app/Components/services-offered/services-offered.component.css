@@ -121,7 +121,7 @@
 .detailing .images .pic2{
     position: absolute;
     top: 590px;
-    left: 830px;
+    left: 980px;
     z-index: 1;
 }
 
@@ -137,7 +137,7 @@
 .detailing .images .pic3{
     position: absolute;
     top: 650px;
-    left: 780px;
+    left: 930px;
     z-index: 1;
     box-shadow: -3px 4px 62px -11px rgba(0,0,0,0.8);
     -webkit-box-shadow: -3px 4px 62px -11px rgba(0,0,0,0.8);
@@ -280,7 +280,7 @@
 .sanitize .images .pic2{
     position: absolute;
     top: 1480px;
-    left: 830px;
+    left: 980px;
     z-index: 1;
 }
 
@@ -296,7 +296,7 @@
 .sanitize .images .pic3{
     position: absolute;
     top: 1540px;
-    left: 780px;
+    left: 930px;
     z-index: 1;
     box-shadow: -3px 4px 62px -11px rgba(0,0,0,0.8);
     -webkit-box-shadow: -3px 4px 62px -11px rgba(0,0,0,0.8);
