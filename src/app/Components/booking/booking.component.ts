@@ -5,8 +5,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Bookings } from 'src/app/models/booking';
 import { DealsService } from 'src/app/Services/deals.service';
 import { Services } from 'src/app/models/service';
-
-
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -39,7 +37,7 @@ export class BookingComponent implements OnInit {
     this.sectionA.nativeElement.style.display = 'block'
     this.sectionB.nativeElement.style.display = 'none'
   }
-  
+
   getServiceId(){
     this.dealsService.getServiceByID(this.selectedId).subscribe((serviceSelect) => {
       this.serviceSelected = serviceSelect[0]   
