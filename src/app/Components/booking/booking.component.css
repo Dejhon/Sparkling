@@ -11,6 +11,13 @@ form{
     width: 400px;
     margin-top: 50px;
     padding-bottom: 50px;
+    /* border: 1px solid gray; */
+    /* overflow: hidden; */
+}
+
+form .container{
+    display: flex;
+    gap: 30px;
 }
 
 .content-wrapper{
@@ -22,7 +29,7 @@ form{
 .wrap1{
     display: grid;
     grid-template-columns: 49% 49%;
-    column-gap: 3%;
+    column-gap: 15px;
 }
 
 .wrap2{
@@ -110,6 +117,10 @@ label{
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.wrapper2{
+    display: none;
 }
 
 .wrapper2 .cardNum{

@@ -14,25 +14,48 @@ import { Services } from 'src/app/models/service';
 })
 export class BookingComponent implements OnInit {
 
-  @ViewChild('cost') cost!: ElementRef
+  @ViewChild('cost') cost!: ElementRef;
+  @ViewChild('sectionA') sectionA!:ElementRef
+  @ViewChild('sectionB') sectionB!:ElementRef
+
   selectedId : string  = this.activateRoute.snapshot.params['id'];
   serviceSelected!: Services;
   bookingForm!: FormGroup;
-  cardForm!:FormGroup
   serviceAmount = 0;
-  isEditable = false;
+  
 
-  constructor(private activateRoute:ActivatedRoute, private dealsService:DealsService,
-              private bookingService: BookingService  
-             ) {}
+  constructor(private activateRoute:ActivatedRoute, private dealsService:DealsService,private bookingService: BookingService) {}
 
   ngOnInit(): void {    
     this.getServiceId();
-    this.cardForm = new FormGroup({
-      cardNumber: new FormControl('',Validators.required),
-      monthExpire: new FormControl('',Validators.required),
-      yearExpire: new FormControl('',Validators.required),
-      cvv: new FormControl('', Validators.required)
+  }
+
+  toggleDisplay(){
+    this.sectionA.nativeElement.style.display = 'none'
+    this.sectionB.nativeElement.style.display = 'block'
+  }
+
+  toggleDisplay2(){
+    this.sectionA.nativeElement.style.display = 'block'
+    this.sectionB.nativeElement.style.display = 'none'
+  }
+  
+  getServiceId(){
+    this.dealsService.getServiceByID(this.selectedId).subscribe((serviceSelect) => {
+      this.serviceSelected = serviceSelect[0]   
+      this.serviceAmount = this.serviceSelected.serviceCost;
+      this.bookingForm = new FormGroup({
+        name: new FormControl('', Validators.required),
+        email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/)]),
+        address: new FormControl('', Validators.required),
+        squareFeet: new FormControl(''),
+        service: new FormControl(this.serviceSelected.name, Validators.required),
+        serviceCharge: new FormControl((this.serviceAmount)),
+        cardNumber: new FormControl('',Validators.required),
+        monthExpire: new FormControl('',Validators.required),
+        yearExpire: new FormControl('',Validators.required),
+        cvv: new FormControl('', Validators.required)
+      })     
     }) 
   }
 
@@ -60,20 +83,21 @@ export class BookingComponent implements OnInit {
     return this.bookingForm.get('serviceCharge')
   }
 
-  getServiceId(){
-    this.dealsService.getServiceByID(this.selectedId).subscribe((serviceSelect) => {
-      this.serviceSelected = serviceSelect[0]   
-      this.serviceAmount = this.serviceSelected.serviceCost;
-      this.bookingForm = new FormGroup({
-        name: new FormControl('', Validators.required),
-        email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/)]),
-        address: new FormControl('', Validators.required),
-        squareFeet: new FormControl(''),
-        service: new FormControl(this.serviceSelected.name, Validators.required),
-        serviceCharge: new FormControl((this.serviceAmount)),
-      })     
-    }) 
+  get cardNumber(){
+    return this.bookingForm.get('cardNumber')
   }
+
+  get monthExpire(){
+    return this.bookingForm.get('monthExpire')
+  }
+
+  get yearExpire(){
+    return this.bookingForm.get('yearExpire')
+  }
+
+  get cvv(){
+    return this.bookingForm.get('cvv')
+  }  
 
   onChange(){
     let charge = this.serviceAmount * this.bookingForm.get("squareFeet")?.value 
@@ -82,13 +106,13 @@ export class BookingComponent implements OnInit {
 
   onSubmit(body:object){
       this.bookingService.addReservation(body).subscribe({
-        next:(res)=>{
-          console.log(body);
-        },
-        error:(err)=>{
-          console.log(err);          
-        }
-      })
+      next:(res)=>{
+        console.log(body);
+      },
+      error:(err)=>{
+        console.log(err);          
+      }
+    })
   }
   
 }
