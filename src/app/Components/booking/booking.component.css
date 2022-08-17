@@ -62,6 +62,15 @@ form{
     font-family: 'Roboto', sans-serif;
 }
 
+.charge input{
+    font-size: 18px;
+    border: none;
+}
+
+.charge label{
+    font-size: 18px;
+}
+
 form .submit button{
     border: 1px solid purple;
     background-color: transparent;

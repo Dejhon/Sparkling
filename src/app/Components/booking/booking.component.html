@@ -41,9 +41,9 @@
             <small>Please enter a name</small>
           </div>
          </div>  
-         <div #cost *ngIf="bookingForm?.valid">
-             <input type="number" readonly formControlName="serviceCharge">
-             <!-- <p>{{serviceCost}}</p> -->
+         <div #cost  class="charge" *ngIf="bookingForm?.valid">
+          <label for=""> Total Cost: $</label>
+          <input type="number" readonly formControlName="serviceCharge">
          </div>       
          <div class="submit">
             <button>SUBMIT</button>
