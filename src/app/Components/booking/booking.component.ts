@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { BookingService } from 'src/app/Services/booking.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Bookings } from 'src/app/models/booking';
@@ -49,11 +49,11 @@ export class BookingComponent implements OnInit {
         squareFeet: new FormControl(''),
         service: new FormControl(this.serviceSelected.name, Validators.required),
         serviceCharge: new FormControl((this.serviceAmount)),
-        cardNumber: new FormControl('',Validators.required),
+        cardNumber: new FormControl('',[Validators.required]),
         monthExpire: new FormControl('',Validators.required),
         yearExpire: new FormControl('',Validators.required),
         cvv: new FormControl('', Validators.required)
-      })     
+        })          
     }) 
   }
 
@@ -95,7 +95,7 @@ export class BookingComponent implements OnInit {
 
   get cvv(){
     return this.bookingForm.get('cvv')
-  }  
+  } 
 
   onChange(){
     let charge = this.serviceAmount * this.bookingForm.get("squareFeet")?.value 

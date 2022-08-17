@@ -27,7 +27,7 @@ import { BookingService } from './Services/booking.service';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +55,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [AuthService, AuthGuard, DealsService,AssessService,BookingService],
   bootstrap: [AppComponent]

@@ -26,7 +26,7 @@ form .container{
     gap: 15px;
 }
 
-.wrap1{
+.wrap1, .cardNum{
     display: grid;
     grid-template-columns: 49% 49%;
     column-gap: 15px;
@@ -42,6 +42,17 @@ form .container{
     height: 30px;
     border: 1px solid gray;
     font-family: 'Roboto', sans-serif;
+    outline: none;
+}
+
+.Cnum, .cardType{
+    display: grid;
+    grid-template-columns: 100%;
+    margin-top: 20px;
+}
+
+.cardType select{
+    height: 30px;
     outline: none;
 }
 

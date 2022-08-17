@@ -39,7 +39,7 @@
         <small>Please enter a name</small>
       </div>
      </div>  
-     <div #cost  class="charge" *ngIf="bookingForm?.valid">
+     <div #cost  class="charge" *ngIf="squareFeet?.dirty">
       <label for=""> Total Cost: $</label>
       <input type="number" readonly formControlName="serviceCharge" required #ServiceCharge>
      </div>     
@@ -49,10 +49,15 @@
     </div>  
   </div>
 
-  <div class="wrapper2" #sectionB>
+  <div class="wrapper2" #sectionB formGroupName="accountInfo">
       <div class="cardNum">
-        <label for="">Card Number</label>
-        <input type="text" placeholder="XXXX XXXX XXXX XXXX" formControlName="cardNumber">
+        <div class="Cnum">
+          <label for="">Card Number</label>
+          <input type="text" placeholder="XXXX XXXX XXXX XXXX" formControlName="cardNumber">
+          <div *ngIf="cardNumber?.invalid && cardNumber?.touched" class="error">
+            <small> Enter valid Card number</small>
+          </div>
+        </div>
       </div>
       <div class="expiry">
         <div class="month">
