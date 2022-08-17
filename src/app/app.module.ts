@@ -22,11 +22,12 @@ import { AuthGuard } from './Guards/auth.guard';
 import { DealsService } from './Services/deals.service';
 import { MatCardModule } from '@angular/material/card';
 import { CompanyProfileComponent } from './Components/company-profile/company-profile.component';
-import { MatTabsModule } from '@angular/material/tabs';
 import { AssessService } from './Services/assess.service';
 import { BookingService } from './Services/booking.service';
-
-
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,10 @@ import { BookingService } from './Services/booking.service';
     FormsModule,
     MatDialogModule,
     MatCardModule,
-    MatTabsModule
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [AuthService, AuthGuard, DealsService,AssessService,BookingService],
   bootstrap: [AppComponent]

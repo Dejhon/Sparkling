@@ -18,15 +18,22 @@ export class BookingComponent implements OnInit {
   selectedId : string  = this.activateRoute.snapshot.params['id'];
   serviceSelected!: Services;
   bookingForm!: FormGroup;
-  SQFT!:number;
+  cardForm!:FormGroup
   serviceAmount = 0;
+  isEditable = false;
 
   constructor(private activateRoute:ActivatedRoute, private dealsService:DealsService,
               private bookingService: BookingService  
              ) {}
 
   ngOnInit(): void {    
-    this.getServiceId();        
+    this.getServiceId();
+    this.cardForm = new FormGroup({
+      cardNumber: new FormControl('',Validators.required),
+      monthExpire: new FormControl('',Validators.required),
+      yearExpire: new FormControl('',Validators.required),
+      cvv: new FormControl('', Validators.required)
+    }) 
   }
 
   get name(){
@@ -61,7 +68,7 @@ export class BookingComponent implements OnInit {
         name: new FormControl('', Validators.required),
         email: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{3}$/)]),
         address: new FormControl('', Validators.required),
-        squareFeet: new FormControl('', Validators.required),
+        squareFeet: new FormControl(''),
         service: new FormControl(this.serviceSelected.name, Validators.required),
         serviceCharge: new FormControl((this.serviceAmount)),
       })     
