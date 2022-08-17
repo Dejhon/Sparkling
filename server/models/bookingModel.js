@@ -20,8 +20,7 @@ const booking = new mongoose.Schema({
     serviceCharge:{
         type:Number,
         required: true
-    }
-    
+    },
 });
 
 const Booking = mongoose.model('bookings', booking)

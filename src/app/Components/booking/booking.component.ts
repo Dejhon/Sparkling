@@ -81,17 +81,14 @@ export class BookingComponent implements OnInit {
   }
 
   onSubmit(body:object){
-    if(this.bookingForm?.invalid){
-      alert('Please Fill Out Form')
-    }else{
       this.bookingService.addReservation(body).subscribe({
         next:(res)=>{
+          console.log(body);
         },
         error:(err)=>{
           console.log(err);          
         }
       })
-    }
   }
   
 }
