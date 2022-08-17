@@ -20,6 +20,7 @@ export class BookingComponent implements OnInit {
   serviceSelected!: Services;
   bookingForm!: FormGroup;
   serviceAmount = 0;
+  cardRegex:any = /(^4[0-9]{12}(?:[0-9]{3})?$)|(^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$)|(3[47][0-9]{13})|(^3(?:0[0-5]|[68][0-9])[0-9]{11}$)|(^6(?:011|5[0-9]{2})[0-9]{12}$)|(^(?:2131|1800|35\d{3})\d{11}$)/
   
 
   constructor(private activateRoute:ActivatedRoute, private dealsService:DealsService,private bookingService: BookingService) {}
@@ -49,7 +50,7 @@ export class BookingComponent implements OnInit {
         squareFeet: new FormControl(''),
         service: new FormControl(this.serviceSelected.name, Validators.required),
         serviceCharge: new FormControl((this.serviceAmount)),
-        cardNumber: new FormControl('',[Validators.required]),
+        cardNumber: new FormControl('',Validators.required),
         monthExpire: new FormControl('',Validators.required),
         yearExpire: new FormControl('',Validators.required),
         cvv: new FormControl('', Validators.required)

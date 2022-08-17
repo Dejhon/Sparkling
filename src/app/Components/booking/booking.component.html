@@ -36,7 +36,7 @@
       <label for="">Address</label>
       <textarea cols="30" rows="6" placeholder="Address" formControlName="address" required #Address></textarea>
       <div class="error" *ngIf="address?.invalid && address?.touched">
-        <small>Please enter a name</small>
+        <small>Please enter an address</small>
       </div>
      </div>  
      <div #cost  class="charge" *ngIf="squareFeet?.dirty">
@@ -44,16 +44,16 @@
       <input type="number" readonly formControlName="serviceCharge" required #ServiceCharge>
      </div>     
      <div>
-      <button style="margin-top: 6px;" mat-flat-button color="primary" [disabled]="name?.pristine && email?.pristine && address?.pristine && serviceCharge?.pristine"
+      <button style="margin-top: 6px;" mat-flat-button color="primary" [disabled]="name?.invalid && email?.invalid && address?.invalid && serviceCharge?.invalid"
        (click)="toggleDisplay()">Next</button>
     </div>  
   </div>
 
-  <div class="wrapper2" #sectionB formGroupName="accountInfo">
+  <div class="wrapper2" #sectionB>
       <div class="cardNum">
         <div class="Cnum">
           <label for="">Card Number</label>
-          <input type="text" placeholder="XXXX XXXX XXXX XXXX" formControlName="cardNumber">
+          <input type="number" placeholder="XXXX XXXX XXXX XXXX" [pattern]="cardRegex" formControlName="cardNumber">
           <div *ngIf="cardNumber?.invalid && cardNumber?.touched" class="error">
             <small> Enter valid Card number</small>
           </div>
