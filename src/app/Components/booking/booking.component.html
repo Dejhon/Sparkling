@@ -1,5 +1,5 @@
 <app-header></app-header>
-<form [formGroup]="bookingForm">
+<form [formGroup]="bookingForm" *ngIf="bookingForm">
   <div class="container">
 
   <div class="content-wrapper" #sectionA>
@@ -39,9 +39,9 @@
         <small>Please enter an address</small>
       </div>
      </div>  
-     <div #cost  class="charge" *ngIf="squareFeet?.dirty">
+     <div class="charge">
       <label for=""> Total Cost: $</label>
-      <input type="number" readonly formControlName="serviceCharge" required #ServiceCharge>
+      <input type="number" placeholder="Total Cost" formControlName="serviceCharge" required #ServiceCharge readonly>
      </div>     
      <div>
       <button style="margin-top: 6px;" mat-flat-button color="primary" [disabled]="name?.invalid && email?.invalid && address?.invalid && serviceCharge?.invalid"
@@ -53,7 +53,7 @@
       <div class="cardNum">
         <div class="Cnum">
           <label for="">Card Number</label>
-          <input type="number" placeholder="XXXX XXXX XXXX XXXX" [pattern]="cardRegex" formControlName="cardNumber">
+          <input type="number" placeholder="XXXX XXXX XXXX XXXX" [pattern]="cardRegex" formControlName="cardNumber" #CardNumber>
           <div *ngIf="cardNumber?.invalid && cardNumber?.touched" class="error">
             <small> Enter valid Card number</small>
           </div>
@@ -96,7 +96,7 @@
       <div class="cvv">
         <div class="cvvNum">
           <label for="">CVV</label>
-          <input type="number" placeholder="CVV" formControlName="cvv">
+          <input type="number" placeholder="CVV" formControlName="cvv" #CVV>
         </div>
         <div class="info">
           3 or 4 digit usually found on the signature strip
@@ -104,7 +104,18 @@
       </div>
       <div style="margin-top:10px">
         <button mat-flat-button color="primary" (click)="toggleDisplay2()">Back</button>&nbsp;
-        <button mat-flat-button color="primary" [disabled]="bookingForm.invalid">Book Service</button>
+        <button mat-flat-button color="primary" [disabled]="bookingForm.invalid" (click)="onSubmit({
+          name : Name.value.trim(),
+          email : Email.value.trim(),
+          address: Address.value,
+          serviceCharge: ServiceCharge.value,
+          serviceBooked: ServiceBooked.value,
+          cardNumber: CardNumber.value,
+          cvv: CVV.value
+          }
+          );
+          
+        ">Book Service</button>
       </div>
     </div>
   </div>

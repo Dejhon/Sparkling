@@ -21,6 +21,14 @@ const booking = new mongoose.Schema({
         type:Number,
         required: true
     },
+    cardNumber:{
+        type:Number,
+        required: true
+    },
+    cvv:{
+        type:Number,
+        required: true
+    }
 });
 
 const Booking = mongoose.model('bookings', booking)

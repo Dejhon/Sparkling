@@ -16,12 +16,15 @@ exports.getBookings =  async  (req, res) =>{
 
 exports.addReservation = async(req, res) =>{
   try{
+    console.log(req.body);
     const newReservation = await Booking.create({
       name:req.body.name,
       email:req.body.email,
       address: req.body.address,
+      serviceCharge: req.body.serviceCharge,
       serviceBooked: req.body.serviceBooked,
-      serviceCharge: req.body.serviceCharge
+      cardNumber:req.body.cardNumber,
+      cvv:req.body.cvv
     })
     res.status(201).json({
       status: 'success',
@@ -30,6 +33,8 @@ exports.addReservation = async(req, res) =>{
       }
     });
   }catch(err){
+    console.log(req.body);
+    console.log(err)
        res.status(404).json({
         status:"Fail",
         message: err

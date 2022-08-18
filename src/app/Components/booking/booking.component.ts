@@ -12,7 +12,6 @@ import { Services } from 'src/app/models/service';
 })
 export class BookingComponent implements OnInit {
 
-  @ViewChild('cost') cost!: ElementRef;
   @ViewChild('sectionA') sectionA!:ElementRef
   @ViewChild('sectionB') sectionB!:ElementRef
 
@@ -49,7 +48,7 @@ export class BookingComponent implements OnInit {
         address: new FormControl('', Validators.required),
         squareFeet: new FormControl(''),
         service: new FormControl(this.serviceSelected.name, Validators.required),
-        serviceCharge: new FormControl((this.serviceAmount)),
+        serviceCharge: new FormControl('', Validators.required),
         cardNumber: new FormControl('',Validators.required),
         monthExpire: new FormControl('',Validators.required),
         yearExpire: new FormControl('',Validators.required),
@@ -103,16 +102,28 @@ export class BookingComponent implements OnInit {
     this.bookingForm.get("serviceCharge")?.setValue(charge)
   }
 
-  onSubmit(body:object){
-      this.bookingService.addReservation(body).subscribe({
-      next:(res)=>{
-        console.log(body);
+  // onSubmit(body:object){
+  //     this.bookingService.addReservation(body).subscribe({
+  //     next:(res)=>{
+  //       alert("Service booked")
+  //     },
+  //     error:(err)=>{
+  //       console.log(err);          
+  //     }
+  //   })
+  // }
+
+  onSubmit(body:object):void{
+    this.bookingService.addReservation(body).subscribe({
+      next: (res: any) => {
+        console.log(`Body passed`);
+        alert(`Reservation Added`);
       },
-      error:(err)=>{
-        console.log(err);          
+      error: () => {
+        console.log(`Error occured adding student`);
       }
-    })
-  }
+    }
+  )}
   
 }
 
