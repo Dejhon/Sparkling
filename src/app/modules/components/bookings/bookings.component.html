@@ -1,1 +1,24 @@
-<p>bookings works!</p>
+<input type="search" placeholder="Search for Bookings" [(ngModel)]="searchText">
+
+<div class="container">
+    <div class="cards" *ngFor="let x of bookings | filter:searchText">
+        <mat-card class="example-card">
+            <mat-card-title>{{x.name}}</mat-card-title>
+            <mat-card-subtitle>{{x._id}}</mat-card-subtitle>
+            <mat-card-content>
+               <label for="">Contact</label><br>
+               <p>{{x.email}}</p>
+               <label for="">Address</label><br>
+               <p>{{x.address}}</p>
+               <label for="">Service</label><br>
+               <p>{{x.serviceBooked}}</p>
+               <label>Charge</label><br>
+               <p>{{x.serviceCharge | currency}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button class="edit" mat-button (click)="moveToEdit(x._id)" >Edit</button>
+              <button class="delete" mat-button (click)="cancelBooking(x._id)" >Cancel</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+  </div>

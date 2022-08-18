@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddServiceComponent } from '../components/add-service/add-service.component';
 import { BookingsComponent } from '../components/bookings/bookings.component';
+import { UpdateBookingsComponent } from '../components/update-bookings/update-bookings.component';
 import { UpdateServicesComponent } from '../components/update-services/update-services.component';
 import { ViewAssessmentsComponent } from '../components/view-assessments/view-assessments.component';
 import { ViewServicesComponent } from '../components/view-services/view-services.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
     {path:'view-services', component: ViewServicesComponent},
     {path:'addService', component:AddServiceComponent},
     {path:'updateServices/:id', component:UpdateServicesComponent},
-    {path:'assessments', component:ViewAssessmentsComponent}
+    {path:'assessments', component:ViewAssessmentsComponent},
+    {path:'updateBookings/:id', component:UpdateBookingsComponent}
 ];
 
 @NgModule({

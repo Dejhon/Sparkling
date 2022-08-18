@@ -13,6 +13,7 @@ import { UpdateServicesComponent } from '../components/update-services/update-se
 import { BookingsComponent } from '../components/bookings/bookings.component';
 import { ViewAssessmentsComponent } from '../components/view-assessments/view-assessments.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { UpdateBookingsComponent } from '../components/update-bookings/update-bookings.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     ViewServicesComponent,
     UpdateServicesComponent,
     BookingsComponent,
-    ViewAssessmentsComponent
+    ViewAssessmentsComponent,
+    UpdateBookingsComponent
   ],
   imports: [
     CommonModule,
