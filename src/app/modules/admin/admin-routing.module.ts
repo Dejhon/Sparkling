@@ -10,6 +10,7 @@ import { ViewServicesComponent } from '../components/view-services/view-services
 const routes: Routes = [
     {path: '', redirectTo: '/profile/home', pathMatch: 'full'},
     {path:'home', component:BookingsComponent},
+    {path:'bookings', component:BookingsComponent},
     {path:'view-services', component: ViewServicesComponent},
     {path:'addService', component:AddServiceComponent},
     {path:'updateServices/:id', component:UpdateServicesComponent},
