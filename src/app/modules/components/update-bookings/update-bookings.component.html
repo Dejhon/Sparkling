@@ -1,1 +1,12 @@
-
+<form action="" [formGroup]="updateBooking" *ngIf="updateBooking">
+    <h1>Change Status</h1>
+    <div class="status">
+        <input type="text" formControlName="status" required #STAT>
+        <div class="error" *ngIf="status?.invalid">
+            <small>Enter booking status</small>
+        </div>
+    </div>
+    <div class="submit">
+        <button mat-flat-button color="primary" (click)="submit({status: STAT.value.trim()})">Update</button>
+    </div>
+</form>

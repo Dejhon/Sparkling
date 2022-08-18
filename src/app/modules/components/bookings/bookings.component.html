@@ -14,9 +14,11 @@
                <p>{{x.serviceBooked}}</p>
                <label>Charge</label><br>
                <p>{{x.serviceCharge | currency}}</p>
+               <label for="">Status</label><br>
+               <p>{{x.status}}</p>
             </mat-card-content>
             <mat-card-actions>
-              <button class="edit" mat-button (click)="moveToEdit(x._id)" >Edit</button>
+              <button class="edit" mat-button (click)="moveToUpdate(x._id)" >Change Status</button>
               <button class="delete" mat-button (click)="cancelBooking(x._id)" >Cancel</button>
             </mat-card-actions>
           </mat-card>

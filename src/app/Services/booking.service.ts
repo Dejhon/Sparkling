@@ -38,7 +38,7 @@ export class BookingService {
   }
   
   updateReservation(id: string, body:object): Observable<Bookings>{
-    return this.bookingService.put<Bookings>(`${this.REST_API_URL}/${id}`, body).pipe(
+    return this.bookingService.patch<Bookings>(`${this.REST_API_URL}/${id}`, body).pipe(
       tap(newData => console.log(`Reservation updated successfully`)),
       catchError(error => of(new Bookings())),
     );

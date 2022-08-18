@@ -24,7 +24,8 @@ exports.addReservation = async(req, res) =>{
       serviceCharge: req.body.serviceCharge,
       serviceBooked: req.body.serviceBooked,
       cardNumber:req.body.cardNumber,
-      cvv:req.body.cvv
+      cvv:req.body.cvv,
+      status: req.body.status
     })
     res.status(201).json({
       status: 'success',
@@ -57,17 +58,8 @@ exports.getReservationById = async (req, res) =>{
 exports.updateReservation = async (req, res) =>{
   try{
       const update = await Booking.findByIdAndUpdate(req.params.id,
-      {
-        name: req.body.name,
-        email: req.body.email,
-        address: req.body.address,
-        serviceBooked: req.body.serviceBooked,
-        serviceCharge: req.body.serviceCharge,
-        registrationFee: req.body.registrationFee,
-       },
-       {new: true}
-       )
-
+      {status: req.body.status},
+      {new: true})
       res.status(200).json({
       status: 'success',
       data:{

@@ -28,6 +28,10 @@ const booking = new mongoose.Schema({
     cvv:{
         type:Number,
         required: true
+    },
+    status:{
+        type:String,
+        default:"incompleted"
     }
 });
 
