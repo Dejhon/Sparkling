@@ -8,6 +8,7 @@
 
 .cards{
     width:500px;  
+    margin-left: 50px;
 }
 
 mat-card{

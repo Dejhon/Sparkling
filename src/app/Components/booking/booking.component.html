@@ -77,6 +77,11 @@
             <option value="11">November</option>
             <option value="12">December</option>
           </select>
+          <div *ngIf="monthExpire?.invalid && monthExpire?.touched">
+            <small class="error">
+              Select Month
+            </small>
+          </div>
         </div>
         <div class="year">
           <label for="Year">Year</label><br>
@@ -91,12 +96,20 @@
           <option value="2029">2029</option>
           <option value="2030">2030</option>
         </select>
+        <div *ngIf="monthExpire?.valid && yearExpire?.untouched && yearExpire?.invalid">
+          <small class="error" >
+            Select Year
+          </small>
+        </div>
         </div>
       </div>
       <div class="cvv">
         <div class="cvvNum">
           <label for="">CVV</label>
-          <input type="number" placeholder="CVV" formControlName="cvv" #CVV>
+          <input type="number" placeholder="CVV" formControlName="cvv" #CVV pattern="[[0-9]{3}]*">
+          <div *ngIf="cvv?.invalid && cvv?.touched">
+            <span class="error">Enter CVC</span>
+          </div>
         </div>
         <div class="info">
           3 or 4 digit usually found on the signature strip
