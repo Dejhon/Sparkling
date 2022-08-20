@@ -5,6 +5,7 @@ const userRouter = require('./routes/userRoute');
 const authRouter = require('./routes/authRoute');
 const bookingRouter = require('./routes/bookingRoute');
 const assessRouter = require('./routes/assesmentRoute');
+const messageRouter = require('./routes/messageRoute');
 const app = express();
 const cors = require('cors');
 
@@ -49,5 +50,6 @@ app.use('/sparkling/assessment',assessRouter);
 app.use('/sparkling/bookings',bookingRouter);
 app.use('/sparkling/services',serviceRouter);
 app.use('/sparkling/users',userRouter); 
+app.use('/sparkling/messages', messageRouter);
 
 module.exports = app;
