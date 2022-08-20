@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddServiceComponent } from '../components/add-service/add-service.component';
 import { BookingsComponent } from '../components/bookings/bookings.component';
+import { MessageComponent } from '../components/message/message.component';
 import { UpdateBookingsComponent } from '../components/update-bookings/update-bookings.component';
+import { UpdateMessageComponent } from '../components/update-message/update-message.component';
 import { UpdateServicesComponent } from '../components/update-services/update-services.component';
 import { ViewAssessmentsComponent } from '../components/view-assessments/view-assessments.component';
 import { ViewServicesComponent } from '../components/view-services/view-services.component';
@@ -15,7 +17,9 @@ const routes: Routes = [
     {path:'addService', component:AddServiceComponent},
     {path:'updateServices/:id', component:UpdateServicesComponent},
     {path:'assessments', component:ViewAssessmentsComponent},
-    {path:'updateBookings/:id', component:UpdateBookingsComponent}
+    {path:'updateBookings/:id', component:UpdateBookingsComponent},
+    {path:'messages', component:MessageComponent},
+    {path:'updateMessages/:id', component:UpdateMessageComponent},
 ];
 
 @NgModule({

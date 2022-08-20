@@ -14,6 +14,8 @@ import { BookingsComponent } from '../components/bookings/bookings.component';
 import { ViewAssessmentsComponent } from '../components/view-assessments/view-assessments.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UpdateBookingsComponent } from '../components/update-bookings/update-bookings.component';
+import { MessageComponent } from '../components/message/message.component';
+import { UpdateMessageComponent } from '../components/update-message/update-message.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { UpdateBookingsComponent } from '../components/update-bookings/update-bo
     UpdateServicesComponent,
     BookingsComponent,
     ViewAssessmentsComponent,
-    UpdateBookingsComponent
+    UpdateBookingsComponent,
+    MessageComponent,
+    UpdateMessageComponent
   ],
   imports: [
     CommonModule,

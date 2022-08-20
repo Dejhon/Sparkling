@@ -1,0 +1,75 @@
+.container{
+    padding: 20px 25px 50px 100px;
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 20px;
+    row-gap: 50px;
+    margin-top: -50px;
+}
+
+.cards{
+    width:920px;  
+    margin-left: 50px;
+}
+
+mat-card{
+    background-color: whitesmoke;
+}
+
+mat-card-actions{
+    display: flex;
+    flex-direction: row;
+}
+
+.edit{
+    color: green;
+}
+
+.delete{
+    color: red;
+}
+
+.account{
+    color: blue;
+}
+
+#view{
+    color: blue;
+    cursor: pointer;
+}
+
+
+.container2{
+    padding: 10px 25px 50px 100px;
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 20px;
+    row-gap: 50px;
+}
+
+.container2 .cards{
+    width:920px;  
+    margin-left: 50px;
+}
+
+.container2 mat-card{
+    background-color: lightgray;
+}
+
+.container2 mat-card-actions{
+    display: flex;
+    flex-direction: row;
+}
+
+.container2 .delete{
+    color: red;
+}
+
+.account{
+    color: blue;
+}
+
+#view{
+    color: blue;
+    cursor: pointer;
+}
