@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'src/app/Services/message.service';
+import { Messages } from 'src/app/models/message';
 
 @Component({
   selector: 'app-company-profile',
@@ -8,9 +10,25 @@ import { Router } from '@angular/router';
 })
 export class CompanyProfileComponent implements OnInit {
 
-  constructor(private route:Router) { }
+  total:number = 0;
+  messages!:Messages[];
+
+  constructor(private route:Router, private messageService:MessageService) { }
 
   ngOnInit(): void {
+    this.getNumberofMessages();
+  }
+
+  getNumberofMessages(): any{
+    this.messageService.getAllMessages().subscribe((res)=> {
+      this.messages = res;
+      this.messages.forEach(element => {
+        if(element.status == "unread"){
+          this.total ++;
+        }        
+      });
+
+    })
   }
 
   logout(){

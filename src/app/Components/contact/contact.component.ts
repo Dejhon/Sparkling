@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'src/app/Services/message.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,7 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('statusMessage') statusMessage!:ElementRef;
+
+  constructor(private messageService:MessageService) { }
 
   ngOnInit(): void {
   }
@@ -46,9 +49,17 @@ export class ContactComponent implements OnInit {
     return this.contactForm.get('message');
   }
 
-  onSubmit(){
-    alert('MESSAGE HAS BEEN SENT')
-    this.contactForm.reset();
+  onSubmit(body:object){
+      this.messageService.addMessage(body).subscribe({
+        next:()=>{
+          this.statusMessage.nativeElement.innerHTML ="Message Sent";
+          this.statusMessage.nativeElement.style.color ="green";
+          this.contactForm.reset();     
+        },
+        error:(err)=>{
+          console.log(err);          
+        }
+      })
   }
 
 

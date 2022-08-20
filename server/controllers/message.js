@@ -20,11 +20,11 @@ exports.addMessage = async(req, res) =>{
     const newMessage = await Message.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-      email:req.body.email,
+      email: req.body.email,
       phoneNumber: req.body.phoneNumber,
       subject: req.body.subject,
-      message:req.body.message,
-      status: req.body.status
+      message: req.body.message,
+      status:  req.body.status
     })
     res.status(201).json({
       status: 'success',

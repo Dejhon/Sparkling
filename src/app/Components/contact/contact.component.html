@@ -31,20 +31,20 @@
 </div>
 
 <div class="contactForm">
-  <form [formGroup]="contactForm" (submit)="onSubmit()">
+  <form [formGroup]="contactForm">
+    <div #statusMessage></div>
     <div class="formContainer">
-
       <div class="name">
         <div class="first-name">
           <label for="first name">First Name <span *ngIf="firstName?.invalid" style="color: red;">*</span></label><br>
-          <input type="text" placeholder="Firstname" formControlName="firstName" pattern="[A-Za-z]*">
+          <input type="text" placeholder="Firstname" formControlName="firstName" pattern="[A-Z a-z]*" #fname>
           <div *ngIf="firstName?.invalid && firstName?.touched">
             <span class="error">Firstname Required</span>
           </div>
         </div>
         <div class="last-name">
           <label for="last name">Last Name <span *ngIf="lastName?.invalid" style="color: red;">*</span></label><br>
-          <input type="text" placeholder="Lastname" formControlName="lastName" pattern="[A-Za-z]*">
+          <input type="text" placeholder="Lastname" formControlName="lastName" pattern="[A-Z a-z]*" #lname>
           <div *ngIf="lastName?.invalid && lastName?.touched" style="margin-left: 50px;">
             <span class="error">lastname Required</span>
           </div>
@@ -54,14 +54,14 @@
       <div class="contact">
         <div class="email">
           <label for="email">Email <span *ngIf="email?.invalid" style="color: red;">*</span></label><br>
-          <input type="email" placeholder="Email Address" formControlName="email">
+          <input type="email" placeholder="Email Address" formControlName="email" #mail>
           <div *ngIf="email?.invalid && email?.touched">
             <span class="error">Valid Email Required</span>
           </div>
         </div>
         <div class="phone-number">
           <label for="Mobile number">Phone <span *ngIf="phone?.invalid" style="color: red;">*</span></label><br>
-          <input type="tel" placeholder="Phone Number" formControlName="phone" pattern="[[0-9]{3}-[0-9]{3}-[0-9]{4}]*">
+          <input type="text" placeholder="Phone Number" formControlName="phone" pattern="[[0-9]{3}-[0-9]{3}-[0-9]{4}]*" #phoneNumber>
           <div *ngIf="phone?.invalid && phone?.touched" style="margin-left: 50px;">
             <span class="error">Phone Number Required</span>
           </div>
@@ -70,7 +70,7 @@
 
       <div class="subject">
         <label for="subject">Subject<span *ngIf="subject?.invalid" style="color: red;">*</span></label><br>
-        <input type="text" placeholder="Subject" formControlName="subject" pattern="[A-Za-z]*">
+        <input type="text" placeholder="Subject" formControlName="subject" pattern="[A-Z a-z]*" #Subject>
         <div *ngIf="subject?.touched && subject?.invalid">
           <span class="error">Enter Subject Matter</span>
         </div>
@@ -78,14 +78,27 @@
 
       <div class="message">
         <label for="meassage">Message <span *ngIf="message?.invalid" style="color: red;">*</span></label><br>
-        <textarea formControlName="message" cols="78" rows="12"></textarea>
+        <textarea formControlName="message" cols="78" rows="12" #Message></textarea>
         <div *ngIf="message?.touched && message?.invalid">
           <span class="error">Enter a Message</span>
         </div>
       </div>
 
       <div class="submitBtn">
-        <input type="submit" [disabled]="contactForm.invalid" value="SUBMIT">
+        <input type="submit" [disabled]="contactForm.invalid" value="SUBMIT" (click)="onSubmit({
+          firstName: fname.value,
+          lastName:lname.value,
+          email: mail.value,
+          phoneNumber: phoneNumber.value,
+          subject: Subject.value,
+          message: Message.value
+        });
+          fname.value ='';
+          lname.value= '';
+          mail.value='';
+          phoneNumber.value ='';
+          Subject.value='';
+          Message.value ='' ">
       </div>
 
     </div>
