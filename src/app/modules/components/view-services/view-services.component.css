@@ -1,13 +1,12 @@
 .container{
-    padding: 50px 25px 50px 100px;
+    padding: 50px 25px 50px 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
     row-gap: 50px;
 }
 
 .cards{
-    width:500px;  
+    width:470px;  
     margin-left: 50px;
 }
 
