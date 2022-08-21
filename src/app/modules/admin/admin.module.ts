@@ -16,6 +16,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { UpdateBookingsComponent } from '../components/update-bookings/update-bookings.component';
 import { MessageComponent } from '../components/message/message.component';
 import { UpdateMessageComponent } from '../components/update-message/update-message.component';
+import { HomeComponent } from '../components/home/home.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { UpdateMessageComponent } from '../components/update-message/update-mess
     ViewAssessmentsComponent,
     UpdateBookingsComponent,
     MessageComponent,
-    UpdateMessageComponent
+    UpdateMessageComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

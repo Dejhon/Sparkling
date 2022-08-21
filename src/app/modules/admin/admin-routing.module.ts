@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddServiceComponent } from '../components/add-service/add-service.component';
 import { BookingsComponent } from '../components/bookings/bookings.component';
+import { HomeComponent } from '../components/home/home.component';
 import { MessageComponent } from '../components/message/message.component';
 import { UpdateBookingsComponent } from '../components/update-bookings/update-bookings.component';
 import { UpdateMessageComponent } from '../components/update-message/update-message.component';
@@ -11,7 +12,7 @@ import { ViewServicesComponent } from '../components/view-services/view-services
 
 const routes: Routes = [
     {path: '', redirectTo: '/profile/home', pathMatch: 'full'},
-    {path:'home', component:BookingsComponent},
+    {path:'home', component:HomeComponent},
     {path:'bookings', component:BookingsComponent},
     {path:'view-services', component: ViewServicesComponent},
     {path:'addService', component:AddServiceComponent},

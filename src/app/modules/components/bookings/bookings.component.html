@@ -1,8 +1,8 @@
 <input type="search" placeholder="Search for Bookings" [(ngModel)]="searchText">
 
 <div class="container">
-    <div class="cards" *ngFor="let x of bookings | filter:searchText">
-        <mat-card class="example-card">
+    <div class="cards" *ngFor="let x of bookings | filter:searchText;">
+        <mat-card class="example-card" [class.complete]="x.status == 'completed'">
             <mat-card-title>{{x.name}}</mat-card-title>
             <mat-card-subtitle>{{x._id}}</mat-card-subtitle>
             <mat-card-content>
