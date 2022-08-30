@@ -17,7 +17,6 @@ exports.login = async (req, res) =>{
                     algorithm: "HS256",
                     expiresIn: expiry
                    });
-                //    res.json({status: 'ok',loginUser : true, data:{existUser , response ,token}});
                    res.json({token:token});
                 } else {
                    res.json({status: 'warn', loginUser : false, data: 'Please enter valid password'});
@@ -31,28 +30,3 @@ exports.login = async (req, res) =>{
         })
     }
 }
-
-// exports.login = async (req, res) => {
-//   try{
-//     const { userName, password} = req.body;
-//     const user = await User.findOne({userName});
-//     if(!user){
-//       return res.status(404).json({status:"Error", message:"User not found"})
-//     }
-//     const comparePassword = await bcrypt.compare(password, user.password);
-//     if(comparePassword){
-//       const token = jwt.sign({
-//         _id: user._id,
-//         userName: user.userName,
-//       },
-//        JWT_SECRET = "doctorBird",{
-//         expiresIn:86400 //will expire in the next 24 hours
-//       })
-//       return res.status(200).json({user, token: token})
-//     }else{
-//       return res.status(400).json({status:"error", message:"Invalid Credentials"})
-//     }
-//   }catch(err){
-//    console.log(err);
-//   }
-// }
