@@ -17,7 +17,7 @@ exports.login = async (req, res) =>{
                     algorithm: "HS256",
                     expiresIn: expiry
                    });
-                   res.json({token:token});
+                   res.json({status:"Login Successful",token:token});
                 } else {
                    res.json({status: 'warn', loginUser : false, data: 'Please enter valid password'});
                 }

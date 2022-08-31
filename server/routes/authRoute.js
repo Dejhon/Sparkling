@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors')
-// const userController = require('../controllers/auth');
-const { login,
-       
-      } = require('../controllers/auth');
+const { login } = require('../controllers/auth');
   
 var whitelist = ['http://localhost:4200','http://localhost:3000/sparkling/authentication',]
 var corsOptions = {
@@ -19,7 +16,7 @@ var corsOptions = {
 
 router
     .route('/')
-    .post(cors(corsOptions), login);
+    .post(login);
 
 
 module.exports = router;
