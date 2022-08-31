@@ -236,8 +236,8 @@
 }
 
 .work .instruct{
-    text-align: center;  
-    width: 20%;
+    margin-left: 30px;
+    width: 10%;
     height: 180px;
     padding-top: 10px;
     font-family: 'Roboto', sans-serif;  
