@@ -1,5 +1,7 @@
+<input type="search" placeholder="Search for Bookings" [(ngModel)]="searchText">
+
 <div class="container">
-  <div class="cards" *ngFor="let deals of services">
+  <div class="cards" *ngFor="let deals of services | filter:searchText">
       <mat-card class="example-card">
           <mat-card-title>{{deals.name}}</mat-card-title>
           <mat-card-subtitle>{{deals._id}}</mat-card-subtitle>

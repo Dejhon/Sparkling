@@ -11,6 +11,7 @@ import { DealsService } from 'src/app/Services/deals.service';
 export class ViewServicesComponent implements OnInit {
 
   services!:Services[]
+  searchText!:string;
 
   constructor(private dealsService:DealsService, private route:Router) { }
 

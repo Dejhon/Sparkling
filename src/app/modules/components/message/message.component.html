@@ -1,7 +1,7 @@
 <input type="search" placeholder="Search for Bookings" [(ngModel)]="searchText">
 <div class="container">
     <div #note></div>
-    <div class="cards" *ngFor="let message of messages; let i = index">
+    <div class="cards" *ngFor="let message of messages | filter:searchText; let i = index">
         <mat-card class="example-card" *ngIf="message.status == 'unread'">
             <mat-card-title>{{message.firstName}} {{message.lastName}}</mat-card-title>
             <mat-card-subtitle>{{message._id}}</mat-card-subtitle>
