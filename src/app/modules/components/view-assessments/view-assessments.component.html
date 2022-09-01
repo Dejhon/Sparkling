@@ -11,7 +11,7 @@
                <p>{{assess.address}}</p>
             </mat-card-content>
             <mat-card-actions>
-              <button class="delete" mat-button >Delete</button>
+              <button class="delete" mat-button (click)="delete(assess._id)">Delete</button>
             </mat-card-actions>
           </mat-card>
     </div>

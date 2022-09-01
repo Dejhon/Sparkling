@@ -25,4 +25,15 @@ export class ViewAssessmentsComponent implements OnInit {
     )
   }
 
+  delete(id:any){
+    this.assessService.removeAssessment(id).subscribe({
+      next:()=>{
+        this.getAllAssessments();
+      },
+      error:(err)=>{
+        console.log(err);        
+      }
+    })
+  }
+
 }

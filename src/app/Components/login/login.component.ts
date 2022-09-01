@@ -54,7 +54,7 @@ onSubmit(body:object):void{
         }
     },
     error: () => {
-      console.log(`Error occured adding student`);
+      console.log(`Error occuredwhile logging in`);
     }
   }
 )}

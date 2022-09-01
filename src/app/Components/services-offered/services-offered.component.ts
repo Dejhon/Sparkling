@@ -15,15 +15,6 @@ export class ServicesOfferedComponent implements OnInit {
 
   constructor(public route: Router, private dealsService:DealsService) { }
 
-  // openDialog(element:object):void{
-  //   this.dialog.open(BookingComponent,{
-  //     width:'50%',
-  //     height:'70%',
-  //     data:{element
-  //     }
-  //   })  
-  // }
-
   ngOnInit(): void {
     this.getServices();
   }
