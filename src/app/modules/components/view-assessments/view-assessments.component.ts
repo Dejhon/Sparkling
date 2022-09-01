@@ -12,6 +12,7 @@ export class ViewAssessmentsComponent implements OnInit {
 
   assessments!: Assessment[];
   searchText:any;
+  found = true;
 
   constructor(private assessService: AssessService, private route:Router) { }
 
