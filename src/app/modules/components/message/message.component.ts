@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class MessageComponent implements OnInit {
 
   messages!:Messages[];
+  searchText!:string;
   @ViewChild('note') note!:ElementRef
 
   constructor(private messageService:MessageService, private route:Router) { }
