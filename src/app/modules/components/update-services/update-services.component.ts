@@ -20,8 +20,7 @@ export class UpdateServicesComponent implements OnInit {
   getServiceId(){
     this.dealsService.getServiceByID(this.selectedId).subscribe((serviceEdit) => {
       this.service = serviceEdit[0]    
-      console.log(this.service);
-        
+      console.log(this.service);        
       this.updateServiceForm = new FormGroup({
         name: new FormControl(serviceEdit[0].name),
         description: new FormControl(serviceEdit[0].description),
