@@ -1,5 +1,8 @@
 <input type="search" placeholder="Search for assessment" [(ngModel)]="searchText">
 <div class="container">
+    <div class="notFound" *ngIf="searchText">
+      <img style="width: 500px; margin-left:200px; height: 300px;width: 600px;" src="/assets/photos/noData.png">
+    </div>
     <div class="cards" *ngFor="let assess of assessments  | filter:searchText ">
         <mat-card class="example-card">
             <mat-card-title>{{assess.name}}</mat-card-title>
