@@ -12,14 +12,30 @@ import { BookingService } from 'src/app/Services/booking.service';
 export class BookingsComponent implements OnInit {
 
   bookings!:Bookings[];
-  searchText!:string;
+  searchText:any = '';
   booking!:Bookings
+  found = false;
 
   constructor(private bookingService:BookingService, private route:Router, private dialog:MatDialog) { }
 
   getAllBookings(){
     this.bookingService.getAllBookings().subscribe(allBookings => this.bookings = allBookings)
   }
+
+  // isFound():any{
+  //   this.bookingService.getAllBookings().subscribe((allBookings) => {
+  //     this.bookings = allBookings;
+  //     this.bookings.forEach(ele=>{
+  //       if(this.searchText == ele.name){
+  //         this.found = true;
+  //       } else{
+  //         this.found = false
+  //       }
+  //       console.log(this.found); 
+  //         return (this.found)       
+  //     })
+  //   })
+  // }
 
   moveToUpdate(id:any){
     this.route.navigate(['/profile/updateBookings/' + id]);
