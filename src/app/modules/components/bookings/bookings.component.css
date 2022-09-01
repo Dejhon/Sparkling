@@ -12,7 +12,7 @@ input[type=search]{
 .container{
     padding: 50px 25px 50px 100px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1px;
     row-gap: 50px;
 }
