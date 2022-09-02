@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Users } from 'src/app/models/Users';
 import { AuthService } from 'src/app/Services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -39,25 +40,33 @@ export class LoginComponent implements OnInit {
   }
 
 onSubmit(body:object):void{
-  this.authenticate.loginUser(body).subscribe({
-    next: (res: any) => {
-        if(res && res['token']){
-          localStorage.setItem('token',res.token); 
-            this.message.nativeElement.innerHTML ="LOGIN SUCCESSFUL";
-            this.message.nativeElement.style.color ="green"
-            this.message.nativeElement.style.marginBottom ="-20px"
+    this.authenticate.loginUser(body).subscribe({
+      next: (res: any) => {
+          if(res && res['token']){
+            localStorage.setItem('token',res.token);
+            Swal.fire({
+              text:'Login Successful',
+              color:'green',
+              icon: 'success',
+              iconColor:'green',
+              confirmButtonColor:'green',
+            })           
             this.route.navigate(['/profile'])
-        }else{
-          this.message.nativeElement.innerHTML ="INVALID CREDENTIALS"
-          this.message.nativeElement.style.color ="red"
-          this.message.nativeElement.style.marginBottom ="-20px"
-        }
-    },
-    error: () => {
-      console.log(`Error occuredwhile logging in`);
-    }
-  }
-)}
+          }else{
+            Swal.fire({
+              text:'Invalid Credentials',
+              color:'red',
+              icon: 'error',
+              iconColor:'red',
+              confirmButtonColor:'red',
+            })
+          }
+      },
+      error: () => {
+        console.log(`Error occuredwhile logging in`);
+      }
+    })
+}
 
 }
 

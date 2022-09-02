@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'booking/:id', component: BookingComponent}, 
   { path: 'login', component: LoginComponent},  
   { path: 'profile', component: CompanyProfileComponent,canActivate:[AuthGuard],
-    loadChildren:() => import('./modules/admin/admin.module').then((m) => m.AdminModule),
+  loadChildren:() => import('./modules/admin/admin.module').then((m) => m.AdminModule),
   }, 
 ];
 

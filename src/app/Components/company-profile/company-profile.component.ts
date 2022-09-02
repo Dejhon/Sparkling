@@ -49,7 +49,7 @@ export class CompanyProfileComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('token');
-    this.route.navigate(['/home'])
+    this.route.navigate(['/login'])
   }
 
 

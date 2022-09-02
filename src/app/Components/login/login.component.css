@@ -20,7 +20,6 @@
     background-color: white;
     width: 50%;
     min-height: 100%;
-    margin-top: -143;
     opacity: 90%;
     clip-path: polygon(53% 0, 100% 100%, 0 100%, 0 0);
 }
@@ -28,6 +27,7 @@
 .banner .login form{
     opacity: 1;
     padding: 40px;
+    margin-top: 40px;
 }
 
 .banner .login form h1{
@@ -35,6 +35,10 @@
     color:purple;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
+}
+
+.banner .login form h1 a{
+    text-decoration: none;
 }
 
 .login form .container{
