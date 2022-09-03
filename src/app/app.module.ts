@@ -28,6 +28,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { MatButtonModule } from '@angular/material/button';
     BookingComponent,
     LoginComponent,
     CompanyProfileComponent,
+    NotFoundComponent,
 ],
   imports: [
     BrowserModule,

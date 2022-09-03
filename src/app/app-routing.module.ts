@@ -5,6 +5,7 @@ import { CompanyProfileComponent } from './Components/company-profile/company-pr
 import { ContactComponent } from './Components/contact/contact.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { ServicesOfferedComponent } from './Components/services-offered/services-offered.component';
 import { AuthGuard } from './Guards/auth.guard';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'profile', component: CompanyProfileComponent,canActivate:[AuthGuard],
   loadChildren:() => import('./modules/admin/admin.module').then((m) => m.AdminModule),
   }, 
+  { path: '**', pathMatch: 'full', component:NotFoundComponent },
 ];
 
 @NgModule({
