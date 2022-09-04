@@ -16,6 +16,22 @@
   opacity: 45%;
 }
 
+.text{
+  padding: 0 0 0 100px;
+  margin-left: 310px;
+  position: absolute;
+  margin-top: -180px;
+  font-family: 'Noto Serif JP', serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: whitesmoke;
+  font-size: 70px;
+  font-weight: bold;
+  color: white;
+  font-family: 'Noto Serif JP', serif;
+}
+
 .container{
   width: 100%;
   display: grid;
