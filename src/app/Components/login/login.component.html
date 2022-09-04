@@ -7,7 +7,7 @@
         <form action="" [formGroup]="loginForm">
             <div class="container">
                 <h1><a routerLink="/home">SPARKLING</a></h1>
-                <div class="message" #message style="color: plum;">*This Section is Reserved For Admin</div>
+                <div class="message" #message style="color: plum;">*THIS SECTION IS RESERVED FOR ADMIN</div>
                 <div class="userNm">
                     <input type="text" placeholder="Username" formControlName="username" #userName>
                     <div class="error" *ngIf="username?.invalid && username?.touched">
