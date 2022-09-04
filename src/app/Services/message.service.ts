@@ -31,7 +31,6 @@ export class MessageService {
 
   getMessageById(id: string):Observable<Messages | any>{
     return this.messageService.get<Messages>(`${this.REST_API_URL}/${id}`).pipe(
-      // tap(selectedService => console.log(`selected student = ${JSON.stringify(JSON.parse(selectedService))}`)),
       tap(selectedMessage => console.log(`MESSAGE RETRIEVED BY ID`)),
       catchError(error => of(new Messages())),
     );

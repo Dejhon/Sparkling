@@ -31,7 +31,6 @@ export class BookingService {
 
   getReservationById(id: string):Observable<Bookings | any>{
     return this.bookingService.get<Bookings>(`${this.REST_API_URL}/${id}`).pipe(
-      // tap(selectedService => console.log(`selected student = ${JSON.stringify(JSON.parse(selectedService))}`)),
       tap(selectedService => console.log(`Reservation Retrieved By Id`)),
       catchError(error => of(new Bookings())),
     );

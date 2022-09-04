@@ -30,7 +30,6 @@ export class AssessService {
 
   getAssessmentById(id: string):Observable<Assessment | any>{
     return this.assessService.get<Assessment>(`${this.REST_API_URL}/${id}`).pipe(
-      // tap(selectedService => console.log(`selected student = ${JSON.stringify(JSON.parse(selectedService))}`)),
       tap(selectedService => console.log(`Assessment retrieved By Id`)),
       catchError(error => of(new Assessment())),
     );
