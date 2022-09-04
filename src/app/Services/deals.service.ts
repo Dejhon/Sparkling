@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Services } from '../models/service';
 import { catchError, map, tap } from 'rxjs';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -11,7 +12,7 @@ import { Observable, of } from 'rxjs';
 })
 export class DealsService {
 
-  REST_API_URL = 'http://localhost:3000/sparkling/services'
+  REST_API_URL = environment.REST_API_URL  + '/services'
 
   constructor(private services: HttpClient) { }
 

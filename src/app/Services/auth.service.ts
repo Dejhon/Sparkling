@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Users } from '../models/Users';
 import { catchError, map, tap } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  REST_API_URL = 'http://localhost:3000/sparkling/authentication'
+  REST_API_URL = environment.REST_API_URL  + '/authentication'
 
   constructor(private auth:HttpClient) { }
 

@@ -3,13 +3,14 @@ import { Assessment } from '../models/assess';
 import { catchError, map, tap } from 'rxjs';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AssessService {
 
-  REST_API_URL = 'http://localhost:3000/sparkling/assessment'
+  REST_API_URL = environment.REST_API_URL  + '/assessment'
 
 
   constructor(private assessService:HttpClient) { }

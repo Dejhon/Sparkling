@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Messages } from '../models/message';
 import { catchError, map, tap } from 'rxjs';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
 
-  REST_API_URL = 'http://localhost:3000/sparkling/messages'
+  REST_API_URL = environment.REST_API_URL  + '/messages'
 
 
   constructor(private messageService:HttpClient) { }

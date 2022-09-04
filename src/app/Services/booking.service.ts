@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Bookings } from '../models/booking';
 import { catchError, map, tap } from 'rxjs';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
 
-  REST_API_URL = 'http://localhost:3000/sparkling/bookings'
+  REST_API_URL = environment.REST_API_URL  + '/bookings'
 
 
   constructor(private bookingService:HttpClient) { }
