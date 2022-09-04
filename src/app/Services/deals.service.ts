@@ -31,7 +31,6 @@ export class DealsService {
 
   getServiceByID(id: string):Observable<Services | any>{
     return this.services.get<Services>(`${this.REST_API_URL}/${id}`).pipe(
-      // tap(selectedService => console.log(`selected student = ${JSON.stringify(JSON.parse(selectedService))}`)),
       tap(selectedService => console.log(`Service Retrieved By Id`)),
       catchError(error => of(new Services())),
     );
