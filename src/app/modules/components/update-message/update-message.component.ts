@@ -21,6 +21,7 @@ export class UpdateMessageComponent implements OnInit {
     this.messageService.getMessageById(this.selectedId).subscribe((Message) => {
       this.message = Message[0]
       this.updateMessage = new FormGroup({
+        currentStatus:new FormControl(this.message.status),
         status: new FormControl(this.message.status, Validators.required)
       });
      });

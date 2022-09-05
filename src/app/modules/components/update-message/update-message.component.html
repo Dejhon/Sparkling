@@ -1,7 +1,14 @@
 <form action="" [formGroup]="updateMessage" *ngIf="updateMessage">
     <h1>Change Status</h1>
+    <div class="current">
+        <label for="">Current Status</label>
+        <input type="text" formControlName="currentStatus" readonly>
+    </div>
     <div class="status">
-        <input type="text" formControlName="status" required #STAT>
+        <label for="">Status Changes</label>
+        <select formControlName="status" #STAT>
+            <option>completed</option>
+        </select>
         <div class="error" *ngIf="status?.invalid">
             <small>Enter booking status</small>
         </div>
