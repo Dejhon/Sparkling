@@ -24,6 +24,7 @@ export class UpdateBookingsComponent implements OnInit {
     this.bookingService.getReservationById(this.selectedId).subscribe((Booking) => {
       this.booking = Booking[0]
       this.updateBooking = new FormGroup({
+        currentStatus: new FormControl(this.booking.status),
         status: new FormControl(this.booking.status,Validators.required)
       });
      });
