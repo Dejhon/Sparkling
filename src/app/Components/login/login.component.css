@@ -32,8 +32,9 @@
 
 .banner .login form h1{
     font-size: 35px;
-    color:rgb(41, 0, 41);
-    /* font-weight: bold; */
+    color:purple;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
 }
 
 .banner .login form h1 a{
