@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="btn">
-                    <button (click)="onSubmit({userName:userName.value.trim(), password : Password.value.trim()});
+                    <button [disabled]="loginForm.pristine" (click)="onSubmit({userName:userName.value.trim(), password : Password.value.trim()});
                         userName.value = '';
                         Password.value = '';
                         ">LOGIN</button>
