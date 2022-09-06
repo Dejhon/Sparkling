@@ -1,4 +1,4 @@
-<input type="search" placeholder="Search for Bookings" [(ngModel)]="searchText">
+<input type="search" placeholder="Search for Messages" [(ngModel)]="searchText">
 <div class="container">
     <div #note></div>
     <div class="cards" *ngFor="let message of messages | filter:searchText; let i = index">
