@@ -18,7 +18,7 @@
                <p>{{x.status}}</p>
             </mat-card-content>
             <mat-card-actions>
-              <button class="edit" *ngIf="x.status == 'unread'" mat-button (click)="moveToUpdate(x._id)" >Change Status</button>
+              <button class="edit" [disabled]="x.status == 'read'" mat-button (click)="moveToUpdate(x._id)" >Change Status</button>
               <button class="delete" mat-button (click)="cancelBooking(x._id)" >Cancel</button>
             </mat-card-actions>
           </mat-card>
