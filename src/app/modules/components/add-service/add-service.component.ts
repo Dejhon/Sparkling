@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DealsService } from 'src/app/Services/deals.service';
@@ -9,6 +9,8 @@ import { DealsService } from 'src/app/Services/deals.service';
   styleUrls: ['./add-service.component.css']
 })
 export class AddServiceComponent implements OnInit {
+
+  @ViewChild('message') message!: ElementRef;
 
   constructor(private createService:DealsService, private route:Router) { }
 
@@ -38,6 +40,11 @@ export class AddServiceComponent implements OnInit {
 
  
   addService(body:object):void{
+    if(this.addServiceForm?.pristine){
+      this.message.nativeElement.innerHTML = 'FORM FIELDS CANNOT BE EMPTY'
+      this.message.nativeElement.style.color = 'red'
+      this.message.nativeElement.style.marginTop = '-10px'
+    }
     this.createService.addService(body).subscribe({
       next: (res: any) => {
         console.log(`Body passed ${JSON.stringify(res)}`);

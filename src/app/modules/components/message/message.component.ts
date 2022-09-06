@@ -25,18 +25,16 @@ export class MessageComponent implements OnInit {
   }
 
   delete(id:any){
-    this.messageService.deleteMessage(id).subscribe({
-      next:()=>{
-        this.note.nativeElement.innerHTML ="Message Deleted"
-        this.note.nativeElement.style.textAlign ="center"
-        this.note.nativeElement.style.color ="red"
-        this.note.nativeElement.style.fontSize ="18px";
-        this.getAllMessages();
-      },
-      error:(err)=>{
-        console.log(err);        
-      }
-    })
+    if(window.confirm("THIS MESSAGE WILL BE DELETED")){
+      this.messageService.deleteMessage(id).subscribe({
+        next:()=>{
+          this.getAllMessages();
+        },
+        error:(err)=>{
+          console.log(err);        
+        }
+      })
+    }
   }
 
   moveToEdit(id:any){

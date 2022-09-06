@@ -42,7 +42,7 @@ export class BookingsComponent implements OnInit {
   }
 
   cancelBooking(id:any){
-    if( window.confirm('THIS RECORD WILL BE DELETED')){
+    if( window.confirm('THIS BOOKING WILL BE DELETED')){
       this.bookingService.cancelReservation(id).subscribe({
         next:() =>{
           alert('Booking Deleted')

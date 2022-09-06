@@ -27,14 +27,16 @@ export class ViewAssessmentsComponent implements OnInit {
   }
 
   delete(id:any){
-    this.assessService.removeAssessment(id).subscribe({
-      next:()=>{
-        this.getAllAssessments();
-      },
-      error:(err)=>{
-        console.log(err);        
-      }
-    })
+    if(window.confirm("THIS ASSESSMENT WILL BE DELETED")){
+      this.assessService.removeAssessment(id).subscribe({
+        next:()=>{
+          this.getAllAssessments();
+        },
+        error:(err)=>{
+          console.log(err);        
+        }
+      })
+    }
   }
 
 }
