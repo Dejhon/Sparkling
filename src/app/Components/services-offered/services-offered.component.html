@@ -76,7 +76,26 @@
                 <p>${{deals.serviceCost}}/sq ft</p>
                 <button (click)="moveToBooking(deals._id)">BOOK</button>
             </div>
+    </div>
+    <div class="residential" *ngIf="i > 3">
+        <div class="images">
+            <div class="box pic1">
+                <img src="/assets/photos/servicePhotos/sanitizing1.jpg">
+                <div class="overlay"></div>
+            </div>
+            <div class="box pic2">
+                <img src="/assets/photos/servicePhotos/sanitizing1.jpg">
+                <div class="overlay"></div>
+            </div>
+            <div class="box pic3"><img src="/assets/photos/servicePhotos/sanitize2.jpeg"></div>
         </div>
+        <div class="text">
+            <h1>{{deals.name}}</h1>
+            <p>{{deals.description}} </p>
+            <p>${{deals.serviceCost}}/sq ft</p>
+            <button (click)="moveToBooking(deals._id)">BOOK</button>
+        </div>
+    </div>
 </div>
 
 <app-footer></app-footer>
