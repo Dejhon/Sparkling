@@ -43,7 +43,8 @@ export class AddServiceComponent implements OnInit {
     if(this.addServiceForm?.pristine){
       this.message.nativeElement.innerHTML = 'FORM FIELDS CANNOT BE EMPTY'
       this.message.nativeElement.style.color = 'red'
-      this.message.nativeElement.style.marginTop = '-10px'
+      this.message.nativeElement.style.marginTop = '-10px';
+      this.message.nativeElement.style.textAlign = 'center';
     }
     this.createService.addService(body).subscribe({
       next: (res: any) => {

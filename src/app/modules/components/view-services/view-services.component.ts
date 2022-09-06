@@ -30,15 +30,17 @@ export class ViewServicesComponent implements OnInit {
   }
 
   deleteRecord(id:string):void {
-    this.dealsService.deleteService(id).subscribe({
-      next: () => {
-      },
-      error: () => {
-        alert('Error While Deleting Record');
-      },
-      complete: () => {
-        this.getServices();
-      }
-    })
+    if(window.confirm("THIS SERVICE WILL BE DELETD")){
+      this.dealsService.deleteService(id).subscribe({
+        next: () => {
+        },
+        error: () => {
+          alert('Error While Deleting Record');
+        },
+        complete: () => {
+          this.getServices();
+        }
+      })
+    }
   };
 }
