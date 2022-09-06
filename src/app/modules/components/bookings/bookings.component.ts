@@ -42,15 +42,17 @@ export class BookingsComponent implements OnInit {
   }
 
   cancelBooking(id:any){
-    this.bookingService.cancelReservation(id).subscribe({
-      next:() =>{
-        alert('Booking Deleted')
-        this.getAllBookings();
-      },
-      error: (err)=>{
-        console.log(err);
-      }
-    })
+    if( window.confirm('THIS RECORD WILL BE DELETED')){
+      this.bookingService.cancelReservation(id).subscribe({
+        next:() =>{
+          alert('Booking Deleted')
+          this.getAllBookings();
+        },
+        error: (err)=>{
+          console.log(err);
+        }
+      })
+    }
   }
 
   ngOnInit(): void {
