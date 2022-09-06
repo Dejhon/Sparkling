@@ -40,32 +40,42 @@ export class LoginComponent implements OnInit {
   }
 
 onSubmit(body:object):void{
-    this.authenticate.loginUser(body).subscribe({
-      next: (res: any) => {
-          if(res && res['token']){
-            localStorage.setItem('token',res.token);
-            Swal.fire({
-              text:'Login Successful',
-              color:'green',
-              icon: 'success',
-              iconColor:'green',
-              confirmButtonColor:'green',
-            })           
-            this.route.navigate(['/profile'])
-          }else{
-            Swal.fire({
-              text:'Invalid Credentials',
-              color:'red',
-              icon: 'error',
-              iconColor:'red',
-              confirmButtonColor:'red',
-            })
-          }
-      },
-      error: () => {
-        console.log(`Error occuredwhile logging in`);
-      }
+   if(this.loginForm?.pristine){
+    Swal.fire({
+      text:'Form Fields Cannot Be Empty',
+      color:'red',
+      icon: 'error',
+      iconColor:'red',
+      confirmButtonColor:'red',
     })
+   }else{
+     this.authenticate.loginUser(body).subscribe({
+       next: (res: any) => {
+           if(res && res['token']){
+             localStorage.setItem('token',res.token);
+             Swal.fire({
+               text:'Login Successful',
+               color:'green',
+               icon: 'success',
+               iconColor:'green',
+               confirmButtonColor:'green',
+             })           
+             this.route.navigate(['/profile'])
+           }else{
+             Swal.fire({
+               text:'Invalid Credentials',
+               color:'red',
+               icon: 'error',
+               iconColor:'red',
+               confirmButtonColor:'red',
+             })
+           }
+       },
+       error: () => {
+         console.log(`Error occuredwhile logging in`);
+       }
+     })
+   }
 }
 
 }
