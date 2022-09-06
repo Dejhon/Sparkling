@@ -40,15 +40,6 @@ export class LoginComponent implements OnInit {
   }
 
 onSubmit(body:object):void{
-   if(this.loginForm?.pristine){
-    Swal.fire({
-      text:'Form Fields Cannot Be Empty',
-      color:'red',
-      icon: 'error',
-      iconColor:'red',
-      confirmButtonColor:'red',
-    })
-   }else{
      this.authenticate.loginUser(body).subscribe({
        next: (res: any) => {
            if(res && res['token']){
@@ -75,7 +66,6 @@ onSubmit(body:object):void{
          console.log(`Error occuredwhile logging in`);
        }
      })
-   }
 }
 
 }
