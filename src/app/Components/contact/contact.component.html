@@ -61,10 +61,10 @@
           </div>
         </div>
         <div class="phone-number">
-          <label for="Mobile number">Phone <span *ngIf="phone?.invalid" style="color: red;">*</span></label><br>
-          <input type="text" placeholder="Phone Number" formControlName="phone" pattern="[[0-9]{3}-[0-9]{3}-[0-9]{4}]*" #phoneNumber>
+          <label for="Mobile number">Phone Number <span *ngIf="phone?.invalid" style="color: red;">*</span></label><br>
+          <input type="text" placeholder="XXX-XXX-XXXX" formControlName="phone" pattern="[[0-9]{3}-[0-9]{3}-[0-9]{4}]*" #phoneNumber>
           <div *ngIf="phone?.invalid && phone?.touched" style="margin-left: 50px;">
-            <span class="error">Phone Number Required</span>
+            <span class="error">Phone number should match the 123-456-7890 format</span>
           </div>
         </div>
       </div>
