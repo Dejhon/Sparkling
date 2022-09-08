@@ -66,6 +66,15 @@ onSubmit(body:object):void{
          console.log(`Error occuredwhile logging in`);
        }
      })
+     if(this.loginForm.controls['username'].hasError('required') && this.loginForm.controls['password'].hasError('required')){
+      Swal.fire({
+        text:'Form Fields Cannot Be Empty',
+        color:'red',
+        icon: 'error',
+        iconColor:'red',
+        confirmButtonColor:'red',
+      })
+     }
 }
 
 }
