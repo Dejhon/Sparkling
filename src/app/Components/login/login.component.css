@@ -32,13 +32,13 @@
 
 .banner .login form h1{
     font-size: 35px;
-    color:plum;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
 
 .banner .login form h1 a{
     text-decoration: none;
+    color: rgb(56, 2, 56);
 }
 
 .login form .container{
