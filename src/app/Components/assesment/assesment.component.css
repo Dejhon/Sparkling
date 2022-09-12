@@ -48,7 +48,7 @@
 .content-wrapper{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 form .name, .email, .address{
@@ -64,6 +64,10 @@ form .name input, .email input{
     border: 1px solid white;
     background-color: white;
     border-radius: 2px;
+}
+
+form .name label, .email label, .address label{
+    color:white;
 }
 
 form .address textarea{
