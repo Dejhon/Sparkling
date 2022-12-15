@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  REST_API_URL:'http://localhost:3000/sparkling'
+  REST_API_URL:'https://sparkling-server-zftx.vercel.app/sparkling'
 };
 
 /*
